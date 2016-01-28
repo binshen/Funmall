@@ -5,12 +5,14 @@ import java.util.Map;
 
 import org.json.JSONObject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxStatus;
 import com.ksls.funmall.R;
 import com.ksls.funmall.base.AppRequestCallback;
@@ -51,13 +53,13 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("username", mUsernameEditText.getText().toString());
 		params.put("password", mPasswordEditText.getText().toString());
-		aq.request(Constants.API_BASE_URL + "/login", params, JSONObject.class, new AppRequestCallback<JSONObject>(aq) {
+		AQuery result = aq.request(Constants.API_BASE_URL + "/login", params, JSONObject.class, new AppRequestCallback<JSONObject>(aq) {
 			@Override
 			public void handleCallback(String url, JSONObject json, AjaxStatus status) {
 				Boolean result = json.optBoolean("result");
-				if(result) {
-					mUsernameEditText.setText("111");
-					mPasswordEditText.setText("222");
+				if (result) {
+					Intent intent = new Intent(aq.getContext(), ChatActivity.class);
+					startActivity(intent);
 				} else {
 					mUsernameEditText.setText("");
 					mPasswordEditText.setText("");
