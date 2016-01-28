@@ -53,17 +53,18 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("username", mUsernameEditText.getText().toString());
 		params.put("password", mPasswordEditText.getText().toString());
-		AQuery result = aq.request(Constants.API_BASE_URL + "/login", params, JSONObject.class, new AppRequestCallback<JSONObject>(aq) {
+
+		aq.request(Constants.API_BASE_URL + "/login", params, JSONObject.class, new AppRequestCallback<JSONObject>(aq) {
 			@Override
 			public void handleCallback(String url, JSONObject json, AjaxStatus status) {
-				Boolean result = json.optBoolean("result");
-				if (result) {
+				if (json != null) {
+					appManager.setLoginUser(json);
 					Intent intent = new Intent(aq.getContext(), ChatActivity.class);
 					startActivity(intent);
 				} else {
 					mUsernameEditText.setText("");
 					mPasswordEditText.setText("");
-					Toast.makeText(aq.getContext(), "用户名密码错误，请重试！", Toast.LENGTH_LONG).show();
+					Toast.makeText(aq.getContext(), "用户名或密码错误，请重试！", Toast.LENGTH_LONG).show();
 				}
 			}
 		});

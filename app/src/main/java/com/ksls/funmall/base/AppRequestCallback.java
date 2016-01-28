@@ -20,9 +20,9 @@ public class AppRequestCallback<T> extends AjaxCallback<JSONObject> {
 		
 		beforeCallback();
 		
-		if(json == null) {
-			ErrorManager.showError(aq.getContext(), "CODE: " + status.getCode());
-		} else {
+//		if(json == null) {
+//			ErrorManager.showError(aq.getContext(), "CODE: " + status.getCode());
+//		} else {
 //			if(JSONUtil.getInt(json, "auth") == 0) {
 //				if(Constants.debug) {
 //					Toast.makeText(aq.getContext(), "API无权访问:" + url, Toast.LENGTH_SHORT).show();
@@ -32,7 +32,7 @@ public class AppRequestCallback<T> extends AjaxCallback<JSONObject> {
 //			} else {
 				handleCallback(url, json, status);
 //			}
-		}
+//		}
 		
 		afterCallback();
 	}
