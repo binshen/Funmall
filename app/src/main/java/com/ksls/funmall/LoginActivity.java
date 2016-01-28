@@ -59,7 +59,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 			public void handleCallback(String url, JSONObject json, AjaxStatus status) {
 				if (json != null) {
 					appManager.setLoginUser(json);
-					Intent intent = new Intent(aq.getContext(), ChatActivity.class);
+					Intent intent = new Intent(aq.getContext(), MainActivity.class);
 					startActivity(intent);
 				} else {
 					mUsernameEditText.setText("");

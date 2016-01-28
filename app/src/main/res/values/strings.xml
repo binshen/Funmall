@@ -5,4 +5,11 @@
     <string name="idtxthint">用户名</string>
     <string name="pwdtxthint">密码</string>
     <string name="loginbtntext">登录</string>
+
+    <string name="desc">描述</string>
+
+    <string name="main_tab1">首页</string>
+    <string name="main_tab2">抢宝</string>
+    <string name="main_tab3">我的</string>
+
 </resources>
