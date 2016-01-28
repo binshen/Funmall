@@ -56,7 +56,8 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 			public void handleCallback(String url, JSONObject json, AjaxStatus status) {
 				Boolean result = json.optBoolean("result");
 				if(result) {
-
+					mUsernameEditText.setText("111");
+					mPasswordEditText.setText("222");
 				} else {
 					mUsernameEditText.setText("");
 					mPasswordEditText.setText("");
