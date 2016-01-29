@@ -30,6 +30,9 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		setContentView(R.layout.activity_login);
 
 		setUpViews();
+
+		mUsernameEditText.setText("admin");
+		mPasswordEditText.setText("admin");
 	}
 
 	@Override
