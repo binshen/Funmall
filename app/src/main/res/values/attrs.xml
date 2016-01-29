@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   
+    <declare-styleable name="custom_header">
+        <attr name="left_background" format="reference" />
+        <attr name="caption" format="string" />
+        <attr name="title_background" format="reference" />
+        <attr name="right_background" format="reference" />
+        <attr name="right_toggle_button" format="reference" />
+    </declare-styleable>
+
+</resources>

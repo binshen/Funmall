@@ -6,4 +6,6 @@
     <dimen name="bottom_tab_font_size">17.0sp</dimen>
     <dimen name="home_tab_height">45.0dip</dimen>
     <dimen name="bottom_tab_padding_drawable">5.0dip</dimen>
+
+    <dimen name="header_height">43.0dip</dimen>
 </resources>
