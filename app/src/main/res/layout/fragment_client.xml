@@ -39,7 +39,7 @@
                     android:orientation="vertical" >
 
                     <com.ksls.funmall.view.NoScrollListView
-                        android:id="@+id/list_home_others"
+                        android:id="@+id/list_clients"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:listSelector="@color/listview_color"

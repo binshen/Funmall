@@ -13,6 +13,10 @@ public class AppQuery extends AQuery {
 		super(act);
 	}
 
+	public <K> AQuery request(String url, Class<K> type, AjaxCallback<K> callback) {
+		return super.ajax(url, type, callback);
+	}
+
 	public <K> AQuery request(String url, Map<String, Object> params, Class<K> type, AjaxCallback<K> callback) {
 		return super.ajax(url, params, type, callback);
 	}
