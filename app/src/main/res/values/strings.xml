@@ -9,7 +9,11 @@
     <string name="desc">描述</string>
 
     <string name="main_tab1">首页</string>
-    <string name="main_tab2">抢宝</string>
-    <string name="main_tab3">我的</string>
+    <string name="main_tab2">房源</string>
+    <string name="main_tab3">客源</string>
+
+    <string name="hello_blank_fragment1">Hello blank fragment 1</string>
+    <string name="hello_blank_fragment2">Hello blank fragment 2</string>
+    <string name="hello_blank_fragment3">Hello blank fragment 3</string>
 
 </resources>
