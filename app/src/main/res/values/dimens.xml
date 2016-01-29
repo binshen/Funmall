@@ -8,4 +8,8 @@
     <dimen name="bottom_tab_padding_drawable">5.0dip</dimen>
 
     <dimen name="header_height">43.0dip</dimen>
+
+    <dimen name="home_title_text_size">12sp</dimen>
+    <dimen name="home_title_height">24dip</dimen>
+
 </resources>
