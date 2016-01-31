@@ -11,28 +11,13 @@
     <FrameLayout
         android:layout_width="135.0dip"
         android:layout_height="106.0dip" >
-<!--
+
         <ImageView
             android:id="@+id/client_head_pic"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
             android:contentDescription="@string/desc" />
--->
-        <RelativeLayout
-            android:layout_width="22.5dip"
-            android:layout_height="15.0dip"
-            android:layout_gravity="top"
-            android:orientation="horizontal" >
-
-            <ImageView
-                android:id="@+id/client_head_pic"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:contentDescription="@string/desc" />
-
-        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"

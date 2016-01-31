@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import com.ksls.funmall.R;
 import com.ksls.funmall.base.AppBaseAdapter;
 import com.ksls.funmall.base.AppQuery;
+import com.ksls.funmall.util.TextViewUtil;
 
 import org.json.JSONObject;
 
@@ -25,6 +26,10 @@ public class ClientAdapter extends AppBaseAdapter {
             convertView = LayoutInflater.from(context).inflate(R.layout.list_client, null);
         }
         aq.id(convertView.findViewById(R.id.client_head_pic)).image(data.optString("headimgurl"), true, true, 0, R.drawable.header_logo);
+        TextViewUtil.setText(convertView, R.id.home_others_house_name, data.optString("nickname"));
+        TextViewUtil.setText(convertView, R.id.home_others_discount_content, data.optString("sex"));
+        TextViewUtil.setText(convertView, R.id.home_others_house_detail, data.optString("realname"));
+        TextViewUtil.setText(convertView, R.id.home_others_house_price, data.optString("user_tel"));
         return convertView;
     }
 }
