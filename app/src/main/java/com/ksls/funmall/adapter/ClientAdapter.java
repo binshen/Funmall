@@ -20,9 +20,11 @@ public class ClientAdapter extends AppBaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        final JSONObject data = (JSONObject) list.get(position);
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.list_client, null);
         }
+        aq.id(convertView.findViewById(R.id.client_head_pic)).image(data.optString("headimgurl"), true, true, 0, R.drawable.header_logo);
         return convertView;
     }
 }
