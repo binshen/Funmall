@@ -1,8 +1,10 @@
 package com.ksls.funmall.adapter;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.ksls.funmall.R;
 import com.ksls.funmall.base.AppBaseAdapter;
 import com.ksls.funmall.base.AppQuery;
 
@@ -18,7 +20,9 @@ public class ClientAdapter extends AppBaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
+        if (convertView == null) {
+            convertView = LayoutInflater.from(context).inflate(R.layout.list_client, null);
+        }
         return convertView;
     }
 }

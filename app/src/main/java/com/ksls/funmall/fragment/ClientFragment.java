@@ -10,10 +10,14 @@ import android.widget.ListView;
 import com.androidquery.callback.AjaxStatus;
 import com.ksls.funmall.R;
 import com.ksls.funmall.adapter.ClientAdapter;
-import com.ksls.funmall.base.AppRequestCallback;
+import com.ksls.funmall.base.AqArrayCallback;
+import com.ksls.funmall.base.AqObjectCallback;
 import com.ksls.funmall.base.BaseFragment;
+import com.ksls.funmall.base.Constants;
+import com.ksls.funmall.util.JSONUtil;
 import com.ksls.funmall.view.PullToRefreshView;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -54,9 +58,9 @@ public class ClientFragment extends BaseFragment implements PullToRefreshView.On
     private void setUpViews() {
 
         client_list = new ArrayList<JSONObject>();
-        aq.request("", JSONObject.class, new AppRequestCallback<JSONObject>(aq) {
+        aq.request(Constants.API_BASE_URL + "/list_client/2", JSONArray.class, new AqArrayCallback<JSONArray>(aq) {
             @Override
-            public void handleCallback(String url, JSONObject json, AjaxStatus status) {
+            public void handleCallback(String url, JSONArray json, AjaxStatus status) {
                 showData(json);
             }
             @Override
@@ -70,7 +74,14 @@ public class ClientFragment extends BaseFragment implements PullToRefreshView.On
         mClientList = (ListView) getView().findViewById(R.id.list_clients);
     }
 
-    private void showData(JSONObject json) {
-
+    private void showData(JSONArray json) {
+        client_list.clear();
+        if(json != null && json.length() > 0) {
+            for (int i = 0; i < json.length(); i++) {
+                client_list.add(JSONUtil.getObject(json, i));
+            }
+            mClientAdapter = new ClientAdapter(aq, client_list);
+            mClientList.setAdapter(mClientAdapter);
+        }
     }
 }
