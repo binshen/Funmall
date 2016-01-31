@@ -3,6 +3,8 @@ package com.ksls.funmall;
 import android.app.Activity;
 import android.os.Bundle;
 
+import com.ksls.funmall.base.BaseActivity;
+
 import org.json.JSONObject;
 
 import java.net.URISyntaxException;
@@ -11,7 +13,9 @@ import io.socket.client.Socket;
 import io.socket.client.IO;
 import io.socket.emitter.Emitter;
 
-public class ChatActivity extends Activity {
+public class ChatActivity extends BaseActivity {
+
+    private String open_id;
 
     private Socket mSocket;
     {
@@ -38,11 +42,20 @@ public class ChatActivity extends Activity {
 
         mSocket.connect();
 
+        Integer user_id = appManager.getLoginUser().optInt("id");
+        open_id = getIntent().getExtras().getString("open_id");
+
         try {
             JSONObject obj = new JSONObject();
-            obj.put("user_id", 2);
+            obj.put("user_id", user_id);
+            obj.put("target_id", open_id);
             obj.put("user_type", 2);
+            obj.put("reset_flag", 1);
             mSocket.emit("online", obj.toString());
+
+            obj.remove("reset_flag");
+            mSocket.emit("show-history", obj.toString());
+
         } catch (Exception e) {
             e.printStackTrace();
         }
