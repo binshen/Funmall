@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.ksls.funmall.base.BaseActivity;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.net.URISyntaxException;
@@ -105,8 +106,23 @@ public class ChatActivity extends BaseActivity {
 
     private Emitter.Listener onReceiveHistory = new Emitter.Listener() {
         @Override
-        public void call(Object... args) {
+        public void call(final Object... args) {
             System.out.println("+++++++++++++++++++++ onReceiveHistory");
+            ChatActivity.this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        JSONObject data = new JSONObject(String.valueOf(args[0]));
+                        JSONArray messages = data.optJSONArray("results");
+                        for (int i = 0; i < messages.length(); i++) {
+                            JSONObject message = new JSONObject(messages.optString(i));
+                            System.out.println(message);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
         }
     };
 

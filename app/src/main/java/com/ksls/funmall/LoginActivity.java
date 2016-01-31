@@ -29,8 +29,8 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 
 		setUpViews();
 
-		mUsernameEditText.setText("admin");
-		mPasswordEditText.setText("admin");
+		mUsernameEditText.setText("13913913999");
+		mPasswordEditText.setText("888888");
 	}
 
 	@Override

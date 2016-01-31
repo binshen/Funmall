@@ -57,8 +57,9 @@ public class ClientFragment extends BaseFragment implements PullToRefreshView.On
 
     private void setUpViews() {
 
+        Integer user_id = appManager.getLoginUser().optInt("id");
         client_list = new ArrayList<JSONObject>();
-        aq.request(Constants.API_BASE_URL + "/list_client/2", JSONArray.class, new AqArrayCallback<JSONArray>(aq) {
+        aq.request(Constants.API_BASE_URL + "/list_client/" + user_id, JSONArray.class, new AqArrayCallback<JSONArray>(aq) {
             @Override
             public void handleCallback(String url, JSONArray json, AjaxStatus status) {
                 showData(json);
