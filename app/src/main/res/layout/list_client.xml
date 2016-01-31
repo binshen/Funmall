@@ -9,8 +9,8 @@
     android:paddingRight="15dip" >
 
     <FrameLayout
-        android:layout_width="135.0dip"
-        android:layout_height="106.0dip" >
+        android:layout_width="80.0dip"
+        android:layout_height="60.0dip" >
 
         <ImageView
             android:id="@+id/client_head_pic"
@@ -21,13 +21,13 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="16.0dip"
+            android:layout_height="18.0dip"
             android:layout_gravity="bottom"
             android:background="#33000000"
             android:orientation="horizontal" >
 
             <TextView
-                android:id="@+id/home_others_house_price"
+                android:id="@+id/client_user_tel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -45,7 +45,7 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="78.0dip"
+        android:layout_height="60.0dip"
         android:orientation="vertical"
         android:background="@drawable/border_top_right_bottom" >
 
@@ -57,7 +57,7 @@
             android:paddingRight="5.0dip" >
 
             <TextView
-                android:id="@+id/home_others_house_name"
+                android:id="@+id/client_nickname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -67,7 +67,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/home_others_discount_content"
+                android:id="@+id/client_sex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -87,7 +87,7 @@
             android:paddingRight="5.0dip" >
 
             <TextView
-                android:id="@+id/home_others_house_detail"
+                android:id="@+id/client_realname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:lineSpacingMultiplier="1.3"

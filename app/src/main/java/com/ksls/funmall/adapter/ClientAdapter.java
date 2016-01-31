@@ -26,10 +26,10 @@ public class ClientAdapter extends AppBaseAdapter {
             convertView = LayoutInflater.from(context).inflate(R.layout.list_client, null);
         }
         aq.id(convertView.findViewById(R.id.client_head_pic)).image(data.optString("headimgurl"), true, true, 0, R.drawable.header_logo);
-        TextViewUtil.setText(convertView, R.id.home_others_house_name, data.optString("nickname"));
-        TextViewUtil.setText(convertView, R.id.home_others_discount_content, data.optString("sex"));
-        TextViewUtil.setText(convertView, R.id.home_others_house_detail, data.optString("realname"));
-        TextViewUtil.setText(convertView, R.id.home_others_house_price, data.optString("user_tel"));
+        TextViewUtil.setText(convertView, R.id.client_nickname, data.optString("nickname"));
+        TextViewUtil.setText(convertView, R.id.client_sex, data.optString("sex"));
+        TextViewUtil.setText(convertView, R.id.client_realname, data.optString("realname"));
+        TextViewUtil.setText(convertView, R.id.client_user_tel, data.optString("user_tel"));
         return convertView;
     }
 }
