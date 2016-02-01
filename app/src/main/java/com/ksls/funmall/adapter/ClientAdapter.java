@@ -33,6 +33,7 @@ public class ClientAdapter extends AppBaseAdapter {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.putExtra("open_id", data.optString("open_id"));
+                intent.putExtra("headimgurl", data.optString("headimgurl"));
                 intent.setClass(context, ChatActivity.class);
                 context.startActivity(intent);
             }

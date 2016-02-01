@@ -65,7 +65,9 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
 
     private String open_id;
     private Integer user_id;
+
     private String headimgurl;
+    private String brokerimgurl;
 
     private Socket mSocket;
     {
@@ -144,7 +146,7 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
                         JSONObject data = new JSONObject(String.valueOf(args[0]));
                         ChatMsgEntity entity = new ChatMsgEntity();
                         entity.setDate(new SimpleDateFormat("yyyy-MM-dd HH:ss").format(new Timestamp(Long.valueOf(data.optString("time")).longValue())));
-                        entity.setHead(data.optString("headimgurl"));
+                        entity.setHead(headimgurl);
                         entity.setMsgType(data.optString("user_type").equals("1"));
                         entity.setText(data.optString("message"));
                         mDataArrays.add(entity);
@@ -178,8 +180,13 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
                             JSONObject message = new JSONObject(messages.optString(i));
                             ChatMsgEntity entity = new ChatMsgEntity();
                             entity.setDate(new SimpleDateFormat("yyyy-MM-dd HH:ss").format(new Timestamp(Long.valueOf(message.optString("time")).longValue())));
-                            entity.setHead(message.optString("headimgurl"));
-                            entity.setMsgType(message.optString("user_type").equals("1"));
+                            boolean msgType = message.optString("user_type").equals("1");
+                            if(msgType) {
+                                entity.setHead(headimgurl);
+                            } else {
+                                entity.setHead("http://www.funmall.com.cn/" + brokerimgurl);
+                            }
+                            entity.setMsgType(msgType);
                             entity.setText(message.optString("message"));
                             msgList.add(entity);
                         }
@@ -233,8 +240,9 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
         mSocket.connect();
 
         user_id = appManager.getLoginUser().optInt("id");
-        headimgurl = appManager.getLoginUser().optString("headimgurl");
+        brokerimgurl = appManager.getLoginUser().optString("headimgurl");
         open_id = getIntent().getExtras().getString("open_id");
+        headimgurl = getIntent().getExtras().getString("headimgurl");
 
         try {
             JSONObject obj = new JSONObject();
@@ -302,7 +310,7 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
         if (contString.length() > 0) {
             ChatMsgEntity entity = new ChatMsgEntity();
             entity.setDate(getDate());
-            entity.setHead(headimgurl);
+            entity.setHead(brokerimgurl);
             entity.setMsgType(false);
             entity.setText(contString);
 
@@ -422,7 +430,7 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
                     }
                     ChatMsgEntity entity = new ChatMsgEntity();
                     entity.setDate(getDate());
-                    entity.setHead(headimgurl);
+                    entity.setHead(brokerimgurl);
                     entity.setMsgType(false);
                     entity.setTime(time+"\"");
                     entity.setText(voiceName);
