@@ -10,8 +10,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.androidquery.AQuery;
 import com.ksls.funmall.R;
 import com.ksls.funmall.entity.ChatMsgEntity;
 
@@ -22,16 +24,16 @@ public class ChatMsgViewAdapter extends BaseAdapter {
 		int IMVT_TO_MSG = 1;
 	}
 
-	private static final String TAG = ChatMsgViewAdapter.class.getSimpleName();
-
 	private List<ChatMsgEntity> coll;
 
+	private AQuery aq;
 	private Context ctx;
 
 	private LayoutInflater mInflater;
 	private MediaPlayer mMediaPlayer = new MediaPlayer();
 
-	public ChatMsgViewAdapter(Context context, List<ChatMsgEntity> coll) {
+	public ChatMsgViewAdapter(AQuery aq, Context context, List<ChatMsgEntity> coll) {
+		this.aq = aq;
 		ctx = context;
 		this.coll = coll;
 		mInflater = LayoutInflater.from(context);
@@ -50,55 +52,41 @@ public class ChatMsgViewAdapter extends BaseAdapter {
 	}
 
 	public int getItemViewType(int position) {
-		// TODO Auto-generated method stub
 		ChatMsgEntity entity = coll.get(position);
-
 		if (entity.getMsgType()) {
 			return IMsgViewType.IMVT_COM_MSG;
 		} else {
 			return IMsgViewType.IMVT_TO_MSG;
 		}
-
 	}
 
 	public int getViewTypeCount() {
-		// TODO Auto-generated method stub
 		return 2;
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-
 		final ChatMsgEntity entity = coll.get(position);
 		boolean isComMsg = entity.getMsgType();
 
 		ViewHolder viewHolder = null;
 		if (convertView == null) {
 			if (isComMsg) {
-				convertView = mInflater.inflate(
-						R.layout.chatting_item_msg_text_left, null);
+				convertView = mInflater.inflate(R.layout.chatting_item_msg_text_left, null);
 			} else {
-				convertView = mInflater.inflate(
-						R.layout.chatting_item_msg_text_right, null);
+				convertView = mInflater.inflate(R.layout.chatting_item_msg_text_right, null);
 			}
-
 			viewHolder = new ViewHolder();
-			viewHolder.tvSendTime = (TextView) convertView
-					.findViewById(R.id.tv_sendtime);
-			viewHolder.tvUserName = (TextView) convertView
-					.findViewById(R.id.tv_username);
-			viewHolder.tvContent = (TextView) convertView
-					.findViewById(R.id.tv_chatcontent);
-			viewHolder.tvTime = (TextView) convertView
-					.findViewById(R.id.tv_time);
+			viewHolder.tvSendTime = (TextView) convertView.findViewById(R.id.tv_sendtime);
+			viewHolder.ivUserHead = (ImageView) convertView.findViewById(R.id.iv_userhead);
+			viewHolder.tvContent = (TextView) convertView.findViewById(R.id.tv_chatcontent);
+			viewHolder.tvTime = (TextView) convertView.findViewById(R.id.tv_time);
 			viewHolder.isComMsg = isComMsg;
-
 			convertView.setTag(viewHolder);
 		} else {
 			viewHolder = (ViewHolder) convertView.getTag();
 		}
 
 		viewHolder.tvSendTime.setText(entity.getDate());
-		
 		if (entity.getText().contains(".amr")) {
 			viewHolder.tvContent.setText("");
 			viewHolder.tvContent.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.chatto_voice_playing, 0);
@@ -116,23 +104,19 @@ public class ChatMsgViewAdapter extends BaseAdapter {
 				}
 			}
 		});
-		viewHolder.tvUserName.setText(entity.getName());
-		
+		aq.id(viewHolder.ivUserHead).image(entity.getHead(), true, true, 0, R.drawable.header_logo);
+
 		return convertView;
 	}
 
 	static class ViewHolder {
 		public TextView tvSendTime;
-		public TextView tvUserName;
+		public ImageView ivUserHead;
 		public TextView tvContent;
 		public TextView tvTime;
 		public boolean isComMsg = true;
 	}
 
-	/**
-	 * @Description
-	 * @param name
-	 */
 	private void playMusic(String name) {
 		try {
 			if (mMediaPlayer.isPlaying()) {
@@ -147,15 +131,12 @@ public class ChatMsgViewAdapter extends BaseAdapter {
 
 				}
 			});
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	private void stop() {
 
 	}
-
 }

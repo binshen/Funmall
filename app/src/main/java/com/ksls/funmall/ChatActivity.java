@@ -62,6 +62,7 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
 
     private String open_id;
     private Integer user_id;
+    private String headimgurl;
 
     private Socket mSocket;
     {
@@ -146,16 +147,21 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
                     try {
                         JSONObject data = new JSONObject(String.valueOf(args[0]));
                         JSONArray messages = data.optJSONArray("results");
+                        List<ChatMsgEntity> msgList = new ArrayList<ChatMsgEntity>();
                         for (int i = 0; i < messages.length(); i++) {
                             JSONObject message = new JSONObject(messages.optString(i));
                             ChatMsgEntity entity = new ChatMsgEntity();
                             entity.setDate(message.optString("time"));
-                            entity.setName("");
+                            entity.setHead(message.optString("headimgurl"));
                             entity.setMsgType(message.optString("user_type").equals("1"));
                             entity.setText(message.optString("message"));
+                            msgList.add(entity);
+                        }
+                        Collections.reverse(msgList);
+                        for(ChatMsgEntity entity : msgList) {
                             mDataArrays.add(entity);
                         }
-                        mAdapter = new ChatMsgViewAdapter(ChatActivity.this, mDataArrays);
+                        mAdapter = new ChatMsgViewAdapter(aq, ChatActivity.this, mDataArrays);
                         mListView.setAdapter(mAdapter);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -185,6 +191,7 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
         mSocket.connect();
 
         user_id = appManager.getLoginUser().optInt("id");
+        headimgurl = appManager.getLoginUser().optString("headimgurl");
         open_id = getIntent().getExtras().getString("open_id");
 
         try {
@@ -252,7 +259,7 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
         if (contString.length() > 0) {
             ChatMsgEntity entity = new ChatMsgEntity();
             entity.setDate(getDate());
-            entity.setName("");
+            entity.setHead(headimgurl);
             entity.setMsgType(false);
             entity.setText(contString);
 
@@ -372,7 +379,7 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
                     }
                     ChatMsgEntity entity = new ChatMsgEntity();
                     entity.setDate(getDate());
-                    entity.setName("");
+                    entity.setHead(headimgurl);
                     entity.setMsgType(false);
                     entity.setTime(time+"\"");
                     entity.setText(voiceName);

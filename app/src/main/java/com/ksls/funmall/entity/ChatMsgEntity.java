@@ -2,15 +2,16 @@
 package com.ksls.funmall.entity;
 
 public class ChatMsgEntity {
-    private static final String TAG = ChatMsgEntity.class.getSimpleName();
 
-    private String name;
+    private String head;
 
     private String date;
 
     private String text;
     
     private String time;
+
+    private boolean isComMeg = true;
 
     public String getTime() {
 		return time;
@@ -20,14 +21,12 @@ public class ChatMsgEntity {
 		this.time = time;
 	}
 
-	private boolean isComMeg = true;
-
-    public String getName() {
-        return name;
+    public String getHead() {
+        return head;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setHead(String head) {
+        this.head = head;
     }
 
     public String getDate() {
@@ -53,16 +52,4 @@ public class ChatMsgEntity {
     public void setMsgType(boolean isComMsg) {
     	isComMeg = isComMsg;
     }
-
-    public ChatMsgEntity() {
-    }
-
-    public ChatMsgEntity(String name, String date, String text, boolean isComMsg) {
-        super();
-        this.name = name;
-        this.date = date;
-        this.text = text;
-        this.isComMeg = isComMsg;
-    }
-
 }

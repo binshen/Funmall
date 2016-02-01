@@ -30,7 +30,6 @@
             android:layout_height="52dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:background="@drawable/abaose"
             android:clickable="true"
              />
 
@@ -57,14 +56,6 @@
             android:textColor="#ff000000"
             android:textSize="15sp" />
 
-        <TextView
-            android:id="@+id/tv_username"
-            style="@style/chat_text_name_style"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@id/iv_userhead"
-            android:layout_toLeftOf="@id/tv_chatcontent" />
     </RelativeLayout>
 
 </LinearLayout>
