@@ -1,6 +1,5 @@
 package com.ksls.funmall;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import com.ksls.funmall.base.BaseActivity;
