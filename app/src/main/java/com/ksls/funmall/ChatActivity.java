@@ -28,6 +28,8 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.net.URISyntaxException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -151,7 +153,7 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
                         for (int i = 0; i < messages.length(); i++) {
                             JSONObject message = new JSONObject(messages.optString(i));
                             ChatMsgEntity entity = new ChatMsgEntity();
-                            entity.setDate(message.optString("time"));
+                            entity.setDate(new SimpleDateFormat("yyyy-MM-dd HH:ss").format(new Timestamp(Long.valueOf(message.optString("time")).longValue())));
                             entity.setHead(message.optString("headimgurl"));
                             entity.setMsgType(message.optString("user_type").equals("1"));
                             entity.setText(message.optString("message"));
