@@ -61,6 +61,7 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
     private Handler mHandler = new Handler();
     private String voiceName;
     private long startVoiceT, endVoiceT;
+    private TextView mTxtStatus;
 
     private String open_id;
     private Integer user_id;
@@ -134,8 +135,31 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
 
     private Emitter.Listener onReceiveMessage = new Emitter.Listener() {
         @Override
-        public void call(Object... args) {
+        public void call(final Object... args) {
             System.out.println("+++++++++++++++++++++ onReceiveMessage");
+            ChatActivity.this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        JSONObject data = new JSONObject(String.valueOf(args[0]));
+                        ChatMsgEntity entity = new ChatMsgEntity();
+                        entity.setDate(new SimpleDateFormat("yyyy-MM-dd HH:ss").format(new Timestamp(Long.valueOf(data.optString("time")).longValue())));
+                        entity.setHead(data.optString("headimgurl"));
+                        entity.setMsgType(data.optString("user_type").equals("1"));
+                        entity.setText(data.optString("message"));
+                        mDataArrays.add(entity);
+
+                        if(mAdapter == null) {
+                            mAdapter = new ChatMsgViewAdapter(aq, ChatActivity.this, mDataArrays);
+                            mListView.setAdapter(mAdapter);
+                        } else {
+                            mAdapter.notifyDataSetChanged();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
         }
     };
 
@@ -175,8 +199,24 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
 
     private Emitter.Listener onShowStatus = new Emitter.Listener() {
         @Override
-        public void call(Object... args) {
+        public void call(final Object... args) {
             System.out.println("+++++++++++++++++++++ onShowStatus");
+            ChatActivity.this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        JSONObject data = new JSONObject(String.valueOf(args[0]));
+                        String status = data.optString("status");
+                        if(status.equals("1") || status.equals("true")) {
+                            mTxtStatus.setText("在线");
+                        } else {
+                            mTxtStatus.setText("离线");
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
         }
     };
 
@@ -231,6 +271,7 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
         voice_rcd_hint_tooshort = (LinearLayout) this.findViewById(R.id.voice_rcd_hint_tooshort);
         mSensor = new SoundMeter();
         mEditTextContent = (EditText) findViewById(R.id.et_sendmessage);
+        mTxtStatus = (TextView) findViewById(R.id.txt_status);
 
         //语音文字切换按钮
         chatting_mode_btn.setOnClickListener(new View.OnClickListener() {
