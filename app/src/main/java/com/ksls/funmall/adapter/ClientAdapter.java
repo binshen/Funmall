@@ -41,7 +41,7 @@ public class ClientAdapter extends AppBaseAdapter {
 
         aq.id(convertView.findViewById(R.id.client_head_pic)).image(data.optString("headimgurl"), true, true, 0, R.drawable.header_logo);
         TextViewUtil.setText(convertView, R.id.client_nickname, data.optString("nickname"));
-        TextViewUtil.setText(convertView, R.id.client_sex, data.optString("sex"));
+        TextViewUtil.setText(convertView, R.id.client_sex, data.optString("sex").equals("1") ? "男" : "女");
         TextViewUtil.setText(convertView, R.id.client_realname, data.optString("realname"));
         TextViewUtil.setText(convertView, R.id.client_user_tel, data.optString("user_tel"));
         return convertView;
