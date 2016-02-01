@@ -146,8 +146,13 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
                         JSONObject data = new JSONObject(String.valueOf(args[0]));
                         ChatMsgEntity entity = new ChatMsgEntity();
                         entity.setDate(new SimpleDateFormat("yyyy-MM-dd HH:ss").format(new Timestamp(Long.valueOf(data.optString("time")).longValue())));
-                        entity.setHead(headimgurl);
-                        entity.setMsgType(data.optString("user_type").equals("1"));
+                        boolean msgType = data.optString("user_type").equals("1");
+                        if(msgType) {
+                            entity.setHead(headimgurl);
+                        } else {
+                            entity.setHead("http://www.funmall.com.cn/" + brokerimgurl);
+                        }
+                        entity.setMsgType(msgType);
                         entity.setText(data.optString("message"));
                         mDataArrays.add(entity);
 
@@ -241,7 +246,7 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
         mSocket.connect();
 
         user_id = appManager.getLoginUser().optInt("id");
-        brokerimgurl = appManager.getLoginUser().optString("headimgurl");
+        brokerimgurl = appManager.getLoginUser().optString("pic");
         open_id = getIntent().getExtras().getString("open_id");
         headimgurl = getIntent().getExtras().getString("headimgurl");
 
@@ -309,17 +314,15 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
     private void send() {
         String contString = mEditTextContent.getText().toString();
         if (contString.length() > 0) {
-            ChatMsgEntity entity = new ChatMsgEntity();
-            entity.setDate(getDate());
-            entity.setHead(brokerimgurl);
-            entity.setMsgType(false);
-            entity.setText(contString);
-
-            mDataArrays.add(entity);
-            mAdapter.notifyDataSetChanged();
-
-            mEditTextContent.setText("");
-            mListView.setSelection(mListView.getCount() - 1);
+//            ChatMsgEntity entity = new ChatMsgEntity();
+//            entity.setDate(getDate());
+//            entity.setHead(brokerimgurl);
+//            entity.setMsgType(false);
+//            entity.setText(contString);
+//
+//            mDataArrays.add(entity);
+//            mAdapter.notifyDataSetChanged();
+//            mListView.setSelection(mListView.getCount() - 1);
 
             try {
                 JSONObject obj = new JSONObject();
@@ -331,6 +334,7 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            mEditTextContent.setText("");
         }
     }
 
