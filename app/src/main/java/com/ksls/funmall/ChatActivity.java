@@ -31,34 +31,8 @@ public class ChatActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-        mSocket.on(Socket.EVENT_CONNECT, onConnect);
-        mSocket.on(Socket.EVENT_DISCONNECT, onDisconnect);
-        mSocket.on(Socket.EVENT_CONNECT_ERROR, onConnectError);
-        mSocket.on(Socket.EVENT_CONNECT_TIMEOUT, onConnectError);
-
-        mSocket.on("receive-message", onReceiveMessage);
-        mSocket.on("receive-history", onReceiveHistory);
-        mSocket.on("show-status", onShowStatus);
-
-        mSocket.connect();
-
-        Integer user_id = appManager.getLoginUser().optInt("id");
-        open_id = getIntent().getExtras().getString("open_id");
-
-        try {
-            JSONObject obj = new JSONObject();
-            obj.put("user_id", user_id);
-            obj.put("target_id", open_id);
-            obj.put("user_type", 2);
-            obj.put("reset_flag", 1);
-            mSocket.emit("online", obj.toString());
-
-            obj.remove("reset_flag");
-            mSocket.emit("show-history", obj.toString());
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        setUpSocket();
+        setUpViews();
     }
 
     @Override
@@ -131,4 +105,39 @@ public class ChatActivity extends BaseActivity {
             System.out.println("+++++++++++++++++++++ onShowStatus");
         }
     };
+
+    private void setUpSocket() {
+        mSocket.on(Socket.EVENT_CONNECT, onConnect);
+        mSocket.on(Socket.EVENT_DISCONNECT, onDisconnect);
+        mSocket.on(Socket.EVENT_CONNECT_ERROR, onConnectError);
+        mSocket.on(Socket.EVENT_CONNECT_TIMEOUT, onConnectError);
+
+        mSocket.on("receive-message", onReceiveMessage);
+        mSocket.on("receive-history", onReceiveHistory);
+        mSocket.on("show-status", onShowStatus);
+
+        mSocket.connect();
+
+        Integer user_id = appManager.getLoginUser().optInt("id");
+        open_id = getIntent().getExtras().getString("open_id");
+
+        try {
+            JSONObject obj = new JSONObject();
+            obj.put("user_id", user_id);
+            obj.put("target_id", open_id);
+            obj.put("user_type", 2);
+            obj.put("reset_flag", 1);
+            mSocket.emit("online", obj.toString());
+
+            obj.remove("reset_flag");
+            mSocket.emit("show-history", obj.toString());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void setUpViews() {
+
+    }
 }
