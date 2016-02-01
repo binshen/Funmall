@@ -157,6 +157,7 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
                         } else {
                             mAdapter.notifyDataSetChanged();
                         }
+                        mListView.setSelection(mListView.getCount() - 1);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
