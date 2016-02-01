@@ -30,6 +30,7 @@ import java.io.File;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 
 import io.socket.client.Socket;
@@ -60,6 +61,7 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
     private long startVoiceT, endVoiceT;
 
     private String open_id;
+    private Integer user_id;
 
     private Socket mSocket;
     {
@@ -76,11 +78,8 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
         setContentView(R.layout.activity_chat);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
-        setUpSocket();
         setUpViews();
-
-        showHistory();
-        initData();
+        setUpSocket();
     }
 
     @Override
@@ -149,8 +148,15 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
                         JSONArray messages = data.optJSONArray("results");
                         for (int i = 0; i < messages.length(); i++) {
                             JSONObject message = new JSONObject(messages.optString(i));
-                            System.out.println(message);
+                            ChatMsgEntity entity = new ChatMsgEntity();
+                            entity.setDate(message.optString("time"));
+                            entity.setName("");
+                            entity.setMsgType(message.optString("user_type").equals("1"));
+                            entity.setText(message.optString("message"));
+                            mDataArrays.add(entity);
                         }
+                        mAdapter = new ChatMsgViewAdapter(ChatActivity.this, mDataArrays);
+                        mListView.setAdapter(mAdapter);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -178,7 +184,7 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
 
         mSocket.connect();
 
-        Integer user_id = appManager.getLoginUser().optInt("id");
+        user_id = appManager.getLoginUser().optInt("id");
         open_id = getIntent().getExtras().getString("open_id");
 
         try {
@@ -241,40 +247,12 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
         });
     }
 
-    private void showHistory() {
-
-    }
-
-    private String[] msgArray = new String[] { "有人就有恩怨","有恩怨就有江湖","人就是江湖","你怎么退出？ ","生命中充满了巧合","两条平行线也会有相交的一天。"};
-    private String[] dataArray = new String[] { "2012-10-31 18:00", "2012-10-31 18:10", "2012-10-31 18:11", "2012-10-31 18:20", "2012-10-31 18:30", "2012-10-31 18:35"};
-    private final static int COUNT = 6;
-
-    public void initData() {
-        for (int i = 0; i < COUNT; i++) {
-            ChatMsgEntity entity = new ChatMsgEntity();
-            entity.setDate(dataArray[i]);
-            if (i % 2 == 0) {
-                entity.setName("白富美");
-                entity.setMsgType(true);
-            } else {
-                entity.setName("高富帅");
-                entity.setMsgType(false);
-            }
-
-            entity.setText(msgArray[i]);
-            mDataArrays.add(entity);
-        }
-
-        mAdapter = new ChatMsgViewAdapter(this, mDataArrays);
-        mListView.setAdapter(mAdapter);
-    }
-
     private void send() {
         String contString = mEditTextContent.getText().toString();
         if (contString.length() > 0) {
             ChatMsgEntity entity = new ChatMsgEntity();
             entity.setDate(getDate());
-            entity.setName("高富帅");
+            entity.setName("");
             entity.setMsgType(false);
             entity.setText(contString);
 
@@ -283,6 +261,17 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
 
             mEditTextContent.setText("");
             mListView.setSelection(mListView.getCount() - 1);
+
+            try {
+                JSONObject obj = new JSONObject();
+                obj.put("user_id", user_id);
+                obj.put("target_id", open_id);
+                obj.put("user_type", 2);
+                obj.put("message", contString);
+                mSocket.emit("send-message", obj.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -383,7 +372,7 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
                     }
                     ChatMsgEntity entity = new ChatMsgEntity();
                     entity.setDate(getDate());
-                    entity.setName("高富帅");
+                    entity.setName("");
                     entity.setMsgType(false);
                     entity.setTime(time+"\"");
                     entity.setText(voiceName);
