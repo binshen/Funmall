@@ -14,4 +14,37 @@
         android:focusableInTouchMode="true"
         android:layout_width="0px"
         android:layout_height="0px" />
+
+    <com.ksls.funmall.view.PullToRefreshView
+        android:id="@+id/pull_refresh_view_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <ScrollView
+            android:id="@+id/fragment_house_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:scrollbars="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <com.ksls.funmall.view.NoScrollListView
+                    android:id="@+id/list_clients"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:listSelector="@color/listview_color"
+                    android:cacheColorHint="@color/listview_color"
+                    android:background="@color/white"
+                    android:clipToPadding="false"
+                    android:divider="@null"
+                    android:fadingEdge="none"
+                    android:fastScrollEnabled="false" />
+            </LinearLayout>
+        </ScrollView>
+    </com.ksls.funmall.view.PullToRefreshView>
 </LinearLayout>
