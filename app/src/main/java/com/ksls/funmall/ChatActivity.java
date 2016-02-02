@@ -109,6 +109,14 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
                 send();
                 break;
             case R.id.btn_back:
+                try {
+                    JSONObject obj = new JSONObject();
+                    obj.put("user_id", user_id);
+                    obj.put("target_id", open_id);
+                    mSocket.emit("zero-out", obj.toString());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 finish();
                 break;
         }

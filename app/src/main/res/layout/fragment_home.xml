@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fm="http://schemas.android.com/apk/res/com.ksls.funmall"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" tools:context="com.ksls.funmall.fragment.HomeFragment">
@@ -15,4 +15,4 @@
         android:layout_width="0px"
         android:layout_height="0px" />
 
-</FrameLayout>
+</LinearLayout>

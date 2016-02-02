@@ -1,7 +1,8 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fm="http://schemas.android.com/apk/res/com.ksls.funmall"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="com.ksls.funmall.fragment.ClientFragment">
+    android:layout_height="match_parent" android:orientation="vertical"
+    tools:context="com.ksls.funmall.fragment.ClientFragment">
 
     <com.ksls.funmall.view.Header
         android:layout_width="match_parent"
@@ -33,25 +34,18 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical" >
 
-                <LinearLayout
+                <com.ksls.funmall.view.NoScrollListView
+                    android:id="@+id/list_clients"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical" >
-
-                    <com.ksls.funmall.view.NoScrollListView
-                        android:id="@+id/list_clients"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:listSelector="@color/listview_color"
-                        android:cacheColorHint="@color/listview_color"
-                        android:background="@color/white"
-                        android:clipToPadding="false"
-                        android:divider="@null"
-                        android:fadingEdge="none"
-                        android:fastScrollEnabled="false" />
-                </LinearLayout>
+                    android:listSelector="@color/listview_color"
+                    android:cacheColorHint="@color/listview_color"
+                    android:background="@color/white"
+                    android:clipToPadding="false"
+                    android:divider="@null"
+                    android:fadingEdge="none"
+                    android:fastScrollEnabled="false" />
             </LinearLayout>
         </ScrollView>
     </com.ksls.funmall.view.PullToRefreshView>
-
-</FrameLayout>
+</LinearLayout>
