@@ -24,7 +24,7 @@ public class HouseAdapter extends AppBaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.list_house, null);
         }
-        aq.id(convertView.findViewById(R.id.house_pic)).image("http://www.funmall.com.cn/" + data.optString("bg_pic"), true, true, 0, R.drawable.header_logo);
+        aq.id(convertView.findViewById(R.id.house_pic)).image("http://www.funmall.com.cn/uploadfiles/pics/" + data.optString("bg_pic"), true, true, 0, R.drawable.header_logo);
         return convertView;
     }
 }
