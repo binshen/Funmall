@@ -55,6 +55,7 @@ public class HouseFragment extends BaseFragment implements PullToRefreshView.OnF
     }
 
     private void setUpViews() {
+
         Integer user_id = appManager.getLoginUser().optInt("id");
         house_list = new ArrayList<JSONObject>();
         aq.request(Constants.API_BASE_URL + "/list_house/" + user_id, JSONArray.class, new AqArrayCallback<JSONArray>(aq) {
