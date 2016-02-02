@@ -52,7 +52,7 @@ public class ClientFragment extends BaseFragment implements PullToRefreshView.On
 
     @Override
     public void onFooterRefresh(PullToRefreshView view) {
-
+        mPullToRefreshView.onFooterRefreshComplete();
     }
 
     private void setUpViews() {

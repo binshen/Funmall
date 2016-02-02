@@ -51,7 +51,7 @@ public class HouseFragment extends BaseFragment implements PullToRefreshView.OnF
 
     @Override
     public void onFooterRefresh(PullToRefreshView view) {
-
+        mPullToRefreshView.onFooterRefreshComplete();
     }
 
     private void setUpViews() {
