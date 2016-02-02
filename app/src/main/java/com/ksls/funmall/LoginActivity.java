@@ -61,6 +61,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 					appManager.setLoginUser(json);
 					Intent intent = new Intent(aq.getContext(), MainActivity.class);
 					startActivity(intent);
+					finish();
 				} else {
 					mUsernameEditText.setText("");
 					mPasswordEditText.setText("");
