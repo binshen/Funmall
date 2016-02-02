@@ -68,9 +68,9 @@ public class HouseFragment extends BaseFragment implements PullToRefreshView.OnF
             }
         });
 
-        mPullToRefreshView = (PullToRefreshView) getView().findViewById(R.id.pull_refresh_view_home);
+        mPullToRefreshView = (PullToRefreshView) getView().findViewById(R.id.pull_refresh_view_house);
         mPullToRefreshView.setOnFooterRefreshListener(this);
-        mHouseList = (ListView) getView().findViewById(R.id.list_clients);
+        mHouseList = (ListView) getView().findViewById(R.id.list_houses);
     }
 
     private void showData(JSONArray json) {

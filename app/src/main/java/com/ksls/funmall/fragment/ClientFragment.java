@@ -70,7 +70,7 @@ public class ClientFragment extends BaseFragment implements PullToRefreshView.On
             }
         });
 
-        mPullToRefreshView = (PullToRefreshView) getView().findViewById(R.id.pull_refresh_view_home);
+        mPullToRefreshView = (PullToRefreshView) getView().findViewById(R.id.pull_refresh_view_client);
         mPullToRefreshView.setOnFooterRefreshListener(this);
         mClientList = (ListView) getView().findViewById(R.id.list_clients);
     }

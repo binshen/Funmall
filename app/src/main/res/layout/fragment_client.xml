@@ -17,13 +17,13 @@
         android:layout_height="0px" />
 
     <com.ksls.funmall.view.PullToRefreshView
-        android:id="@+id/pull_refresh_view_home"
+        android:id="@+id/pull_refresh_view_client"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
         <ScrollView
-            android:id="@+id/fragment_client_scroll_view"
+            android:id="@+id/fragment_client_scroll_view_client"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fillViewport="true"
