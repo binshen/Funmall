@@ -11,6 +11,7 @@ import com.ksls.funmall.util.TextViewUtil;
 
 import org.json.JSONObject;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class HouseAdapter extends AppBaseAdapter {
@@ -36,7 +37,8 @@ public class HouseAdapter extends AppBaseAdapter {
         String desc = "装修：" + data.optString("decoration_name") + " | 朝向：" + data.optString("orientation_name");
         TextViewUtil.setText(convertView, R.id.house_description, desc);
 
-        TextViewUtil.setText(convertView, R.id.house_extra_info, data.optString("unit_price") + "元/㎡");
+        Double unit_price = data.optDouble("total_price") / data.optInt("acreage") * 10000;
+        TextViewUtil.setText(convertView, R.id.house_extra_info, new BigDecimal(unit_price).setScale(2, BigDecimal.ROUND_HALF_UP) + "元/㎡");
         return convertView;
     }
 }
