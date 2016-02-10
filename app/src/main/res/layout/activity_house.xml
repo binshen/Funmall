@@ -1,12 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fm="http://schemas.android.com/apk/res/com.ksls.funmall"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:layout_height="match_parent"
     tools:context="com.ksls.funmall.HouseActivity">
 
+    <com.ksls.funmall.view.Header
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height"
+        fm:left_background="@drawable/header_return"
+        fm:right_background="@drawable/header_detail_config" />
 
+    <ScrollView
+        android:id="@+id/house_detail_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- 顶部幻灯 -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/detail_album_height" >
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/house_detail_vpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10.0dip" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:scaleType="matrix"
+                        android:src="@drawable/vpage_turn_left"
+                        android:contentDescription="@string/desc" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:orientation="horizontal"
+                    android:paddingRight="10.0dip" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:scaleType="matrix"
+                        android:src="@drawable/vpage_turn_right"
+                        android:contentDescription="@string/desc" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="25dip"
+                    android:layout_gravity="bottom"
+                    android:background="@color/overlay_color"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/detail_vpager_counter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10.0dip"
+                        android:gravity="center_vertical"
+                        android:drawableLeft="@drawable/icon_detail_vpage"
+                        android:drawablePadding="10.0dip"
+                        android:text=""
+                        android:textSize="@dimen/detail_text_size"
+                        android:textColor="@color/white" />
+
+                </RelativeLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
