@@ -1,9 +1,11 @@
 package com.ksls.funmall.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.ksls.funmall.HouseActivity;
 import com.ksls.funmall.R;
 import com.ksls.funmall.base.AppBaseAdapter;
 import com.ksls.funmall.base.AppQuery;
@@ -26,6 +28,17 @@ public class HouseAdapter extends AppBaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.list_house, null);
         }
+
+        convertView.findViewById(R.id.house_pic).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.putExtra("house_id", data.optString("id"));
+                intent.setClass(context, HouseActivity.class);
+                context.startActivity(intent);
+            }
+        });
+
         aq.id(convertView.findViewById(R.id.house_pic)).image("http://www.funmall.com.cn/uploadfiles/pics/" + data.optString("bg_pic"), true, true, 0, R.drawable.header_logo);
         TextViewUtil.setText(convertView, R.id.house_xiaoqu, data.optString("xiaoqu_name"));
         TextViewUtil.setText(convertView, R.id.house_region, data.optString("region_name"));
