@@ -33,7 +33,7 @@ public class HouseAdapter extends AppBaseAdapter {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.putExtra("house_id", data.optString("id"));
+                intent.putExtra("house_id", data.optInt("id"));
                 intent.setClass(context, HouseActivity.class);
                 context.startActivity(intent);
             }

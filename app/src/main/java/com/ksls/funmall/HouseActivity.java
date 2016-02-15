@@ -47,11 +47,15 @@ public class HouseActivity extends BaseActivity {
     }
 
     private void setUpViews() {
+        vObject = new ArrayList<JSONObject>();
+
         house_id = getIntent().getExtras().getInt("house_id");
-        aq.request(Constants.API_BASE_URL + "/list_house" + house_id, JSONObject.class, new AqObjectCallback<JSONObject>(aq) {
+        aq.request(Constants.API_BASE_URL + "/get_house/" + house_id, JSONObject.class, new AqObjectCallback<JSONObject>(aq) {
             @Override
             public void handleCallback(String url, JSONObject json, AjaxStatus status) {
                 showData(json);
+
+                progressDialog.cancel();
             }
         });
         detail_vpager_counter = (TextView) findViewById(R.id.detail_vpager_counter);
@@ -74,7 +78,7 @@ public class HouseActivity extends BaseActivity {
             pic.setScaleType(ImageView.ScaleType.FIT_XY);
             pic.setOnClickListener(new PagerOnClickListener());
             viewList.add(pic);
-            aq.id(pic).image(JSONUtil.getString(oj_data, i, "pic"));
+            aq.id(pic).image(JSONUtil.getString(oj_data, i, "pic_short"));
         }
 
         final int pager_total = viewList.size();
