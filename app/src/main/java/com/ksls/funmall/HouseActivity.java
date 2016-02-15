@@ -63,11 +63,15 @@ public class HouseActivity extends BaseActivity {
 
     private void showData(JSONObject json) {
 
+        JSONObject oj_data = JSONUtil.getObject(json, "detail");
+
+        String picUrl = "http://www.funmall.com.cn/uploadfiles/pics/" + JSONUtil.getString(oj_data, "folder") + "/1/";
+
         //幻灯
-        initDetailVPager(json);
+        initDetailVPager(json, picUrl);
     }
 
-    private void initDetailVPager(JSONObject json) {
+    private void initDetailVPager(JSONObject json, String picUrl) {
         vObject.clear();
         JSONArray oj_data = JSONUtil.getArray(json, "slide");
         viewList = new ArrayList<View>();
@@ -78,7 +82,7 @@ public class HouseActivity extends BaseActivity {
             pic.setScaleType(ImageView.ScaleType.FIT_XY);
             pic.setOnClickListener(new PagerOnClickListener());
             viewList.add(pic);
-            aq.id(pic).image(JSONUtil.getString(oj_data, i, "pic_short"));
+            aq.id(pic).image(picUrl + JSONUtil.getString(oj_data, i, "pic_short"));
         }
 
         final int pager_total = viewList.size();
