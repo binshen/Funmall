@@ -22,6 +22,8 @@
         <activity android:name=".ChatActivity" />
         <activity android:name=".HouseActivity" >
         </activity>
+        <activity android:name=".HouseAlbumActivity" >
+        </activity>
     </application>
 
 </manifest>
