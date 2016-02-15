@@ -1,10 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fm="http://schemas.android.com/apk/res/com.ksls.funmall"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
     tools:context="com.ksls.funmall.HouseAlbumActivity">
 
-</RelativeLayout>
+    <com.ksls.funmall.view.Header
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height"
+        fm:left_background="@drawable/header_return" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="1"
+        android:background="@color/black" >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/house_album_vpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:orientation="horizontal"
+            android:paddingLeft="10.0dip" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:scaleType="matrix"
+                android:src="@drawable/vpage_turn_left"
+                android:contentDescription="@string/desc" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:orientation="horizontal"
+            android:paddingRight="10.0dip" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:scaleType="matrix"
+                android:src="@drawable/vpage_turn_right"
+                android:contentDescription="@string/desc" />
+        </RelativeLayout>
+    </FrameLayout>
+
+    <RadioGroup
+        android:id="@+id/house_album_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="40.0dip"
+        android:layout_gravity="bottom"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/house_album_tab1"
+            style="@style/house_album_tab"
+            android:text="@string/house_album_tab1"
+            android:background="@drawable/calculator_tab" />
+
+        <RadioButton
+            android:id="@+id/house_album_tab2"
+            style="@style/house_album_tab"
+            android:text="@string/house_album_tab2" />
+
+        <RadioButton
+            android:id="@+id/house_album_tab3"
+            style="@style/house_album_tab"
+            android:text="@string/house_album_tab3" />
+
+        <RadioButton
+            android:id="@+id/house_album_tab4"
+            style="@style/house_album_tab"
+            android:text="@string/house_album_tab4" />
+
+        <RadioButton
+            android:id="@+id/house_album_tab5"
+            style="@style/house_album_tab"
+            android:text="@string/house_album_tab5" />
+
+        <RadioButton
+            android:id="@+id/house_album_tab6"
+            style="@style/house_album_tab"
+            android:text="@string/house_album_tab6" />
+    </RadioGroup>
+
+</LinearLayout>

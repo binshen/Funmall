@@ -19,8 +19,11 @@
     <string name="pull_to_refresh_footer_pull_label">上拉加载更多</string>
     <string name="pull_to_refresh_footer_refreshing_label">加载中…</string>
 
-    <string name="hello_blank_fragment1">Hello blank fragment 1</string>
-    <string name="hello_blank_fragment2">Hello blank fragment 2</string>
-    <string name="hello_blank_fragment3">Hello blank fragment 3</string>
+    <string name="house_album_tab1">效果图</string>
+    <string name="house_album_tab2">户型图</string>
+    <string name="house_album_tab3">区位图</string>
+    <string name="house_album_tab4">实景图</string>
+    <string name="house_album_tab5">样板房</string>
+    <string name="house_album_tab6">活动图</string>
 
 </resources>

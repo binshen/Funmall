@@ -105,9 +105,8 @@ public class HouseActivity extends BaseActivity {
         @Override
         public void onClick(View v) {
             Intent intent = new Intent(getApplicationContext(), HouseAlbumActivity.class);
-            //intent.putExtra("gid", gid);
-            //intent.putExtra("pid", JSONUtil.getInt(vObject.get(currentPosition), "pid"));
-            //intent.putExtra("style", JSONUtil.getInt(vObject.get(currentPosition), "style"));
+            intent.putExtra("h_id", house_id);
+            intent.putExtra("style", 1);
             startActivity(intent);
         }
     }
