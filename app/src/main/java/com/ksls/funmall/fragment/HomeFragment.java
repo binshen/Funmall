@@ -14,7 +14,7 @@ import com.ksls.funmall.util.JSONUtil;
 import com.ksls.funmall.util.TextViewUtil;
 
 
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment implements View.OnClickListener {
 
     @Nullable
     @Override
@@ -48,6 +48,18 @@ public class HomeFragment extends BaseFragment {
 
         if(user_pic != null) {
             aq.id(R.id.login_user_headpic).image("http://www.funmall.com.cn/" + user_pic);
+        }
+
+        getView().findViewById(R.id.button_agency_homepage_logout).setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.button_agency_homepage_logout:
+                getActivity().finish();
+                System.exit(0);
+                break;
         }
     }
 }
