@@ -12,7 +12,7 @@
     <dimen name="home_title_text_size">12sp</dimen>
     <dimen name="home_title_height">24dip</dimen>
 
-    <dimen name="detail_album_height">140dp</dimen>
+    <dimen name="detail_album_height">180dp</dimen>
 
     <dimen name="detail_layout_padding">12.0dip</dimen>
     <dimen name="detail_layout_padding_large">16.0dip</dimen>
