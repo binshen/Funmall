@@ -21,6 +21,7 @@ import com.ksls.funmall.util.TextViewUtil;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,7 +74,9 @@ public class HouseActivity extends BaseActivity {
 
         TextViewUtil.setText(this, R.id.detail_house_top_title, JSONUtil.getString(oj_data, "xiaoqu_name"));
         TextViewUtil.setText(this, R.id.detail_house_selling_point, JSONUtil.getString(oj_data, "name"));
-        TextViewUtil.setText(this, R.id.detail_house_average_price, JSONUtil.getString(oj_data, "unit_price"));
+
+        Double unit_price = oj_data.optDouble("total_price") / oj_data.optInt("acreage") * 10000;
+        TextViewUtil.setText(this, R.id.detail_house_average_price, new BigDecimal(unit_price).setScale(2, BigDecimal.ROUND_HALF_UP) + "元/㎡");
 
         TextViewUtil.setText(this, R.id.detail_house_info_1, JSONUtil.getString(oj_data, "room") + "室" + JSONUtil.getString(oj_data, "lounge") + "厅" + JSONUtil.getString(oj_data, "toilet") + "卫");
         TextViewUtil.setText(this, R.id.detail_house_info_2, JSONUtil.getString(oj_data, "floor") + "/" + JSONUtil.getString(oj_data, "total_floor"));
