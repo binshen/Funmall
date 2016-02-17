@@ -30,6 +30,7 @@
     <string name="detail_house_calculator">房贷计算器</string>
 
     <string name="detail_house_info">楼盘信息</string>
+    <string name="detail_house_desc">楼盘描述</string>
 
     <string name="detail_house_info_1">户型：</string>
     <string name="detail_house_info_2">楼层：</string>

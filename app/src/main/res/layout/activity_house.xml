@@ -172,7 +172,7 @@
                 android:layout_height="0px" />
 
             <LinearLayout
-                android:id="@+id/layout_detail_activity"
+                android:id="@+id/layout_detail_information"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -394,6 +394,45 @@
                 <View style="@style/horizontal_thick_line" />
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/layout_detail_description"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/detail_title_height"
+                    android:background="@color/grey"
+                    android:layout_marginTop="0.5dip"
+                    android:layout_marginBottom="0.5dip">
+
+                    <TextView
+                        style="@style/detail_title"
+                        android:text="@string/detail_house_desc" />
+                </LinearLayout>
+
+                <View style="@style/horizontal_thin_line" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/detail_layout_padding"
+                    android:layout_marginTop="@dimen/detail_group_padding"
+                    android:layout_marginRight="@dimen/detail_layout_padding"
+                    android:layout_marginBottom="@dimen/detail_group_padding"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/detail_house_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="@dimen/detail_text_size"
+                        android:textColor="@color/tint_font_color"
+                        android:lineSpacingMultiplier="1" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

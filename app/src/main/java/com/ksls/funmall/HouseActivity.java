@@ -1,16 +1,15 @@
 package com.ksls.funmall;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.text.Html;
 
 import com.androidquery.callback.AjaxStatus;
 import com.ksls.funmall.adapter.ViewPagerAdapter;
-import com.ksls.funmall.base.AqArrayCallback;
 import com.ksls.funmall.base.AqObjectCallback;
 import com.ksls.funmall.base.BaseActivity;
 import com.ksls.funmall.base.Constants;
@@ -84,6 +83,8 @@ public class HouseActivity extends BaseActivity {
         TextViewUtil.setText(this, R.id.detail_house_info_4, JSONUtil.getString(oj_data, "acreage") + "平米");
         TextViewUtil.setText(this, R.id.detail_house_info_5, JSONUtil.getString(oj_data, "build_year"));
         TextViewUtil.setText(this, R.id.detail_house_info_6, JSONUtil.getString(oj_data, "orientation_name"));
+
+        TextViewUtil.setSpanedText(this, R.id.detail_house_desc, Html.fromHtml(JSONUtil.getString(oj_data, "description")));
     }
 
     private void initDetailVPager(JSONObject json, String picUrl) {
