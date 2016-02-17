@@ -31,4 +31,6 @@
 
     <dimen name="detail_bottom_tab_height">36.0dip</dimen>
 
+    <dimen name="calculator_text_size">16.0sp</dimen>
+
 </resources>

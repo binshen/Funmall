@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:fm="http://schemas.android.com/apk/res/com.ksls.funmall"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <com.ksls.funmall.view.Header
+	    android:layout_width="match_parent"
+	    android:layout_height="@dimen/header_height"
+		fm:left_background="@drawable/header_return"
+		fm:title="@string/calculator_result_title" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dip" >
+        
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:background="@drawable/calculator_border"
+	            android:orientation="vertical" >
+	
+	            <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="50.0dip"
+	                android:padding="10.0dip"
+	                android:orientation="horizontal" >
+	                
+					<TextView
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:gravity="center_vertical"
+	                    android:text="@string/calculator_result_total"
+	                    android:textColor="@color/black"
+	                    android:textSize="@dimen/calculator_text_size" />
+	
+	                <TextView
+	                    android:id="@+id/loan_total_amount"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:gravity="center_vertical"
+	                    android:text=""
+	                    android:textColor="@color/calculator_green"
+	                    android:textSize="@dimen/calculator_text_size" />
+	            </LinearLayout>
+	
+	            <View style="@style/horizontal_thin_line" android:background="@color/darkgrey" />
+	            
+	            <LinearLayout
+		            android:id="@+id/accumulation_loan_layout"
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content"
+		            android:orientation="vertical" >
+	            
+		            <LinearLayout
+		                android:layout_width="match_parent"
+		                android:layout_height="50.0dip"
+		                android:padding="10.0dip" >
+		
+		                <TextView
+		                    android:layout_width="wrap_content"
+		                    android:layout_height="wrap_content"
+		                    android:gravity="center_vertical"
+		                    android:text="@string/calculator_result_accu_rate"
+		                    android:textColor="@color/black"
+		                    android:textSize="@dimen/calculator_text_size" />
+		
+		                <TextView
+		                    android:id="@+id/accumulation_rate"
+		                    android:layout_width="wrap_content"
+		                    android:layout_height="wrap_content"
+		                    android:gravity="center_vertical"
+		                    android:text=""
+		                    android:textColor="@color/calculator_green"
+		                    android:textSize="@dimen/calculator_text_size" />
+		            </LinearLayout>
+		            
+		            <View style="@style/horizontal_thin_line" android:background="@color/darkgrey" />
+		        </LinearLayout>
+	
+	            <LinearLayout
+		            android:id="@+id/commercial_loan_layout"
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content"
+		            android:orientation="vertical" >
+		            
+		            <LinearLayout
+		                android:layout_width="match_parent"
+		                android:layout_height="50.0dip"
+		                android:padding="10.0dip" >
+		
+		                <TextView
+		                    android:layout_width="wrap_content"
+		                    android:layout_height="wrap_content"
+		                    android:gravity="center_vertical"
+		                    android:text="@string/calculator_result_comm_rate"
+		                    android:textColor="@color/black"
+		                    android:textSize="@dimen/calculator_text_size" />
+		
+		                <TextView
+		                    android:id="@+id/commercial_rate"
+		                    android:layout_width="wrap_content"
+		                    android:layout_height="wrap_content"
+		                    android:gravity="center_vertical"
+		                    android:text=""
+		                    android:textColor="@color/calculator_green"
+		                    android:textSize="@dimen/calculator_text_size" />
+		            </LinearLayout>
+		
+		            <View style="@style/horizontal_thin_line" android:background="@color/darkgrey" />
+	            </LinearLayout>
+	            
+	            <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="50.0dip"
+	                android:padding="10.0dip" >
+	
+	                <TextView
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:gravity="center_vertical"
+	                    android:text="@string/calculator_result_repay_total"
+	                    android:textColor="@color/black"
+	                    android:textSize="@dimen/calculator_text_size" />
+	
+	                <TextView
+	                    android:id="@+id/repay_total_amount"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:gravity="center_vertical"
+	                    android:text=""
+	                    android:textColor="@color/calculator_green"
+	                    android:textSize="@dimen/calculator_text_size" />
+	            </LinearLayout>
+	            
+	            <View style="@style/horizontal_thin_line" android:background="@color/darkgrey" />
+	            
+	            <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="50.0dip"
+	                android:padding="10.0dip" >
+	
+	                <TextView
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:gravity="center_vertical"
+	                    android:text="@string/calculator_result_interest_pay"
+	                    android:textColor="@color/black"
+	                    android:textSize="@dimen/calculator_text_size" />
+	
+	                <TextView
+	                    android:id="@+id/repay_interest_amount"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:gravity="center_vertical"
+	                    android:text=""
+	                    android:textColor="@color/calculator_green"
+	                    android:textSize="@dimen/calculator_text_size" />
+	            </LinearLayout>
+	            
+	            <View style="@style/horizontal_thin_line" android:background="@color/darkgrey" />
+	            
+	            <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="50.0dip"
+	                android:padding="10.0dip" >
+	
+	                <TextView
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:gravity="center_vertical"
+	                    android:text="@string/calculator_result_month_total"
+	                    android:textColor="@color/black"
+	                    android:textSize="@dimen/calculator_text_size" />
+	
+	                <TextView
+	                    android:id="@+id/repay_month_total"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:gravity="center_vertical"
+	                    android:text=""
+	                    android:textColor="@color/calculator_green"
+	                    android:textSize="@dimen/calculator_text_size" />
+	            </LinearLayout>
+	            
+	            <View style="@style/horizontal_thin_line" android:background="@color/darkgrey" />
+	            
+	            <LinearLayout
+		            android:id="@+id/monthly_repay_first_layout"
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content"
+		            android:orientation="vertical" >
+	                
+		            <LinearLayout
+		                android:layout_width="match_parent"
+		                android:layout_height="50.0dip"
+		                android:padding="10.0dip" >
+		
+		                <TextView
+		                    android:layout_width="wrap_content"
+		                    android:layout_height="wrap_content"
+		                    android:gravity="center_vertical"
+		                    android:text="@string/calculator_result_first_month"
+		                    android:textColor="@color/black"
+		                    android:textSize="@dimen/calculator_text_size" />
+		
+		                <TextView
+		                    android:id="@+id/monthly_repay_first"
+		                    android:layout_width="wrap_content"
+		                    android:layout_height="wrap_content"
+		                    android:gravity="center_vertical"
+		                    android:text=""
+		                    android:textColor="@color/darkred"
+		                    android:textSize="@dimen/calculator_text_size" />
+		            </LinearLayout>
+	            
+	            	<View style="@style/horizontal_thin_line" android:background="@color/darkgrey" />
+	           	</LinearLayout>
+	            
+	            <LinearLayout
+	                android:id="@+id/monthly_repay_last_layout"
+	                android:layout_width="match_parent"
+	                android:layout_height="50.0dip"
+	                android:padding="10.0dip" >
+	
+	                <TextView
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:gravity="center_vertical"
+	                    android:text="@string/calculator_result_last_month"
+	                    android:textColor="@color/black"
+	                    android:textSize="@dimen/calculator_text_size" />
+	
+	                <TextView
+	                    android:id="@+id/monthly_repay_last"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:gravity="center_vertical"
+	                    android:text=""
+	                    android:textColor="@color/darkred"
+	                    android:textSize="@dimen/calculator_text_size" />
+	            </LinearLayout>
+	            
+	            <LinearLayout
+	                android:id="@+id/monthly_repayment_layout"
+	                android:layout_width="match_parent"
+	                android:layout_height="50.0dip"
+	                android:padding="10.0dip" >
+	
+	                <TextView
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:gravity="center_vertical"
+	                    android:text="@string/calculator_result_average_month"
+	                    android:textColor="@color/black"
+	                    android:textSize="@dimen/calculator_text_size" />
+	
+	                <TextView
+	                    android:id="@+id/monthly_repayment"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:gravity="center_vertical"
+	                    android:text=""
+	                    android:textColor="@color/darkred"
+	                    android:textSize="@dimen/calculator_text_size" />
+	            </LinearLayout>
+	        </LinearLayout>
+	        
+	        <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginBottom="15.0dip"
+		        android:layout_marginRight="15.0dip"
+		        android:layout_marginTop="15.0dip" >
+		
+		        <TextView
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentRight="true"
+		            android:gravity="center_vertical"
+		            android:text="@string/calculator_result_comment"
+		            android:textColor="@color/calculator_green"
+		            android:textSize="14.0sp" />
+		    </RelativeLayout>
+		</LinearLayout>
+    </ScrollView>
+</LinearLayout>

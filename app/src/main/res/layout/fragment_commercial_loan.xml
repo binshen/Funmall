@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/calculator_border" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dip"
+            android:padding="10.0dip" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:text="@string/calculator_repay_method"
+                android:textColor="@color/black"
+                android:textSize="@dimen/calculator_text_size" />
+
+            <TextView
+                android:id="@+id/commercial_repayment_way"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:drawableRight="@drawable/arrow_right_calculator"
+                android:drawablePadding="5.0dip"
+                android:gravity="center_vertical"
+                android:text="@string/calculator_method_1"
+                android:textColor="@color/calculator_green"
+                android:textSize="@dimen/calculator_text_size" />
+        </RelativeLayout>
+
+        <View style="@style/horizontal_thin_line" android:background="@color/darkgrey" />
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dip"
+            android:padding="10.0dip" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:text="@string/calculator_total_amount"
+                android:textColor="@color/black"
+                android:textSize="@dimen/calculator_text_size" />
+
+            <TextView
+                android:id="@+id/commercial_amount_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:text="@string/calculator_label_wan_yuan"
+                android:textColor="@color/black"
+                android:textSize="@dimen/calculator_text_size" />
+
+            <com.kunshan.hbo.view.LineEditText
+                android:id="@+id/commercial_repayment_total"
+                android:layout_width="60.0dip"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/commercial_amount_unit"
+                android:background="@null"
+                android:text=""
+                android:gravity="center_vertical"
+                android:inputType="number"
+                android:textColor="@color/calculator_green" />
+        </RelativeLayout>
+
+        <View style="@style/horizontal_thin_line" android:background="@color/darkgrey" />
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dip"
+            android:padding="10.0dip" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:text="@string/calculator_total_years"
+                android:textColor="@color/black"
+                android:textSize="@dimen/calculator_text_size" />
+
+            <TextView
+                android:id="@+id/commercial_repayment_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:drawableRight="@drawable/arrow_right_calculator"
+                android:drawablePadding="5.0dip"
+                android:gravity="center_vertical"
+                android:text=""
+                android:textColor="@color/calculator_green"
+                android:textSize="@dimen/calculator_text_size" />
+        </RelativeLayout>
+        
+        <View style="@style/horizontal_thin_line" android:background="@color/darkgrey" />
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dip"
+            android:padding="10.0dip" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:text="@string/calculator_interest"
+                android:textColor="@color/black"
+                android:textSize="@dimen/calculator_text_size" />
+
+            <TextView
+                android:id="@+id/commercial_rate_ratio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:drawableRight="@drawable/arrow_right_calculator"
+                android:drawablePadding="5.0dip"
+                android:gravity="center_vertical"
+                android:text="@string/calculator_rate_type_2"
+                android:textColor="@color/calculator_green"
+                android:textSize="@dimen/calculator_text_size" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10.0dip"
+        android:layout_marginTop="10.0dip" >
+
+        <TextView
+            android:id="@+id/commercial_real_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textColor="@color/calculator_green"
+            android:textSize="14.0sp" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_commercial_calculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/calculator_start_compute"
+        android:textSize="16sp" />
+
+</LinearLayout>

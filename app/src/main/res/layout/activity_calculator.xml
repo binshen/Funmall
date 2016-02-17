@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:fm="http://schemas.android.com/apk/res/com.ksls.funmall"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+    
+    <com.ksls.funmall.view.Header
+	    android:layout_width="match_parent"
+	    android:layout_height="@dimen/header_height"
+		fm:left_background="@drawable/header_return"
+		fm:title="@string/detail_house_calculator" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <WebView
+            android:id="@+id/calculator_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+<!--
+    <View 
+        android:focusable="true" 
+        android:focusableInTouchMode="true" 
+        android:layout_width="0px" 
+        android:layout_height="0px" />
+    
+    <android.support.v4.app.FragmentTabHost
+	    android:id="@android:id/tabhost"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:padding="15.0dip" >
+
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:orientation="vertical" >
+	        
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="horizontal" >
+	
+	            <RadioGroup
+	                android:id="@+id/calculator_group"
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_gravity="bottom"
+	                android:gravity="bottom"
+	                android:orientation="horizontal"
+	                android:paddingTop="2.0dip" >
+	
+	                <RadioButton
+	                    android:id="@+id/calculator_tab1"
+	                    style="@style/calculator_tab"
+	                    android:state_checked="true"
+	                    android:text="@string/calculator_accu" />
+	
+	                <RadioButton
+	                    android:id="@+id/calculator_tab2"
+	                    style="@style/calculator_tab_x"
+	                    android:text="@string/calculator_comm" />
+	
+	                <RadioButton
+	                    android:id="@+id/calculator_tab3"
+	                    style="@style/calculator_tab_x"
+	                    android:text="@string/calculator_comb" />
+	            </RadioGroup>
+	        </LinearLayout>
+	        
+	        <FrameLayout
+	            android:id="@android:id/tabcontent"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="10.0dip"
+	            android:layout_weight="1" />
+
+	        <TabWidget
+	            android:id="@android:id/tabs"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="0"
+	            android:visibility="gone" />
+	    </LinearLayout>
+	</android.support.v4.app.FragmentTabHost>
+-->
+</LinearLayout>

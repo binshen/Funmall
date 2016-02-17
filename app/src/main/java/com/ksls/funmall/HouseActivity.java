@@ -24,7 +24,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HouseActivity extends BaseActivity {
+public class HouseActivity extends BaseActivity implements View.OnClickListener {
 
     private Integer house_id;
 
@@ -60,6 +60,8 @@ public class HouseActivity extends BaseActivity {
             }
         });
         detail_vpager_counter = (TextView) findViewById(R.id.detail_vpager_counter);
+
+        findViewById(R.id.button_house_loan_calculator).setOnClickListener(this);
     }
 
     private void showData(JSONObject json) {
@@ -124,6 +126,15 @@ public class HouseActivity extends BaseActivity {
             intent.putExtra("h_id", house_id);
             intent.putExtra("style", 1);
             startActivity(intent);
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.button_house_loan_calculator:
+                startActivity(new Intent(this, CalculatorActivity.class));
+                break;
         }
     }
 }

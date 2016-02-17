@@ -20,10 +20,10 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".ChatActivity" />
-        <activity android:name=".HouseActivity" >
-        </activity>
-        <activity android:name=".HouseAlbumActivity" >
-        </activity>
+        <activity android:name=".HouseActivity" />
+        <activity android:name=".HouseAlbumActivity" />
+        <activity android:name=".CalculatorActivity" />
+        <activity android:name=".CalculatorResultActivity" />
     </application>
 
 </manifest>

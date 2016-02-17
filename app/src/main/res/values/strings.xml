@@ -39,5 +39,48 @@
     <string name="detail_house_info_5">年代：</string>
     <string name="detail_house_info_6">朝向：</string>
 
+    <string name="calculator_accu">公积金贷款</string>
+    <string name="calculator_comm">商业贷款</string>
+    <string name="calculator_comb">组合贷款</string>
 
+    <string name="calculator_year">年（</string>
+    <string name="calculator_period">）期</string>
+
+    <string name="calculator_method_1">等额本息</string>
+    <string name="calculator_method_2">等额本金</string>
+
+    <string name="calculator_rate_type_1">首套房优惠(15%)利率</string>
+    <string name="calculator_rate_type_2">基准利率</string>
+    <string name="calculator_rate_type_3">第二套房上浮(10%)利率</string>
+
+    <string name="calculator_label_wan_yuan">万元</string>
+
+    <string name="calculator_rate_accu">公积金贷款利率</string>
+    <string name="calculator_rate_comm">商业贷款利率</string>
+
+    <string name="calculator_repay_method">还款方式：</string>
+    <string name="calculator_total_amount">总贷款额：</string>
+    <string name="calculator_total_years">按揭年数：</string>
+    <string name="calculator_interest">利率：</string>
+    <string name="calculator_amount_total">贷款金额：</string>
+    <string name="calculator_amount_accu">公积金</string>
+    <string name="calculator_amount_comm">商业性</string>
+
+    <string name="calculator_start_compute">开  始  计  算</string>
+    <string name="calculator_result_title">计算结果</string>
+
+    <string name="calculator_result_total">贷款总额：</string>
+    <string name="calculator_result_accu_rate">公积金贷款利率：</string>
+    <string name="calculator_result_comm_rate">商业贷款利率：</string>
+    <string name="calculator_result_repay_total">还款总额：</string>
+    <string name="calculator_result_interest_pay">支付利息：</string>
+    <string name="calculator_result_month_total">贷款月数：</string>
+    <string name="calculator_result_first_month">首月还款：</string>
+    <string name="calculator_result_last_month">末月还款：</string>
+    <string name="calculator_result_average_month">月均还款：</string>
+    <string name="calculator_result_comment">以上结果仅供参考</string>
+
+    <string name="calculator_result_label_month">月</string>
+    <string name="calculator_result_label_yuan">（元）</string>
+    <string name="calculator_result_label_wan_yuan">（万元）</string>
 </resources>

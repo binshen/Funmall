@@ -16,4 +16,6 @@
     <color name="overlay_color">#33000000</color>
 
     <color name="tint_font_color">#ff999999</color>
+
+    <color name="calculator_green">#ff336600</color>
 </resources>
