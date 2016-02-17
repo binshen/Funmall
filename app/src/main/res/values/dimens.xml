@@ -13,13 +13,22 @@
     <dimen name="home_title_height">24dip</dimen>
 
     <dimen name="detail_album_height">140dp</dimen>
-    <dimen name="detail_text_size">14.0sp</dimen>
-    <dimen name="detail_text_size_small">12.0sp</dimen>
 
     <dimen name="detail_layout_padding">12.0dip</dimen>
     <dimen name="detail_layout_padding_large">16.0dip</dimen>
 
-    <dimen name="detail_title_text_size">16sp</dimen>
-    <dimen name="detail_title_height">34dip</dimen>
+    <dimen name="detail_title_text_size">15sp</dimen>
+    <dimen name="detail_title_height">29dip</dimen>
+
+    <dimen name="detail_text_size">14.0sp</dimen>
+    <dimen name="detail_text_size_small">12.0sp</dimen>
+
+    <dimen name="detail_group_padding">20.0dip</dimen>
+    <dimen name="detail_group_margin">3.5dip</dimen>
+
+    <dimen name="detail_house_main_type_width">120.0dip</dimen>
+    <dimen name="detail_house_main_type_height">80.0dip</dimen>
+
+    <dimen name="detail_bottom_tab_height">36.0dip</dimen>
 
 </resources>

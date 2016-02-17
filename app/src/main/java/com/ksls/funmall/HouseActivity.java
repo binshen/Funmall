@@ -16,6 +16,7 @@ import com.ksls.funmall.base.BaseActivity;
 import com.ksls.funmall.base.Constants;
 import com.ksls.funmall.listener.ViewPagerChangeListener;
 import com.ksls.funmall.util.JSONUtil;
+import com.ksls.funmall.util.TextViewUtil;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -69,6 +70,10 @@ public class HouseActivity extends BaseActivity {
 
         //幻灯
         initDetailVPager(json, picUrl);
+
+        TextViewUtil.setText(this, R.id.detail_house_top_title, JSONUtil.getString(oj_data, "xiaoqu_name"));
+        TextViewUtil.setText(this, R.id.detail_house_selling_point, JSONUtil.getString(oj_data, "name"));
+        TextViewUtil.setText(this, R.id.detail_house_average_price, JSONUtil.getString(oj_data, "unit_price"));
     }
 
     private void initDetailVPager(JSONObject json, String picUrl) {
