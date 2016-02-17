@@ -29,17 +29,14 @@
     <string name="detail_house_selling_point">楼盘卖点：</string>
     <string name="detail_house_calculator">房贷计算器</string>
 
-    <string name="detail_activity_intro">活动介绍</string>
-    <string name="detail_house_dynamic">楼盘动态</string>
     <string name="detail_house_info">楼盘信息</string>
-    <string name="detail_main_house_type">主力户型</string>
 
-    <string name="detail_open_house_time">看房时间：</string>
-    <string name="detail_assembling_place">集合地点：</string>
-    <string name="detail_house_contactor">联系人：</string>
-    <string name="detail_matters_attention">注意事项：</string>
-    <string name="detail_house_region">所在区域：</string>
-    <string name="detail_house_location">楼盘位置：</string>
-    <string name="detail_house_information">项目详情：</string>
+    <string name="detail_house_info_1">户型：</string>
+    <string name="detail_house_info_2">楼层：</string>
+    <string name="detail_house_info_3">地址：</string>
+    <string name="detail_house_info_4">面积：</string>
+    <string name="detail_house_info_5">年代：</string>
+    <string name="detail_house_info_6">朝向：</string>
+
 
 </resources>

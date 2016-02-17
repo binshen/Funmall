@@ -175,8 +175,7 @@
                 android:id="@+id/layout_detail_activity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone" >
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -187,7 +186,7 @@
 
                     <TextView
                         style="@style/detail_title"
-                        android:text="@string/detail_activity_intro" />
+                        android:text="@string/detail_house_info" />
                 </LinearLayout>
 
                 <View style="@style/horizontal_thin_line" />
@@ -212,12 +211,12 @@
                             android:layout_gravity="center_vertical"
                             android:drawableLeft="@drawable/detail_point"
                             android:drawablePadding="5.0dip"
-                            android:text="@string/detail_open_house_time"
+                            android:text="@string/detail_house_info_1"
                             android:textSize="@dimen/detail_text_size"
                             android:textColor="@color/tint_font_color" />
 
                         <TextView
-                            android:id="@+id/detail_open_house_time"
+                            android:id="@+id/detail_house_info_1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
@@ -244,12 +243,12 @@
                             android:layout_gravity="center_vertical"
                             android:drawableLeft="@drawable/detail_point"
                             android:drawablePadding="5.0dip"
-                            android:text="@string/detail_assembling_place"
+                            android:text="@string/detail_house_info_2"
                             android:textSize="@dimen/detail_text_size"
                             android:textColor="@color/tint_font_color" />
 
                         <TextView
-                            android:id="@+id/detail_assembling_place"
+                            android:id="@+id/detail_house_info_2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
@@ -276,12 +275,76 @@
                             android:layout_gravity="center_vertical"
                             android:drawableLeft="@drawable/detail_point"
                             android:drawablePadding="5.0dip"
-                            android:text="@string/detail_house_contactor"
+                            android:text="@string/detail_house_info_3"
                             android:textSize="@dimen/detail_text_size"
                             android:textColor="@color/tint_font_color" />
 
                         <TextView
-                            android:id="@+id/detail_house_contactor"
+                            android:id="@+id/detail_house_info_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text=""
+                            android:textSize="@dimen/detail_text_size"
+                            android:textColor="@color/tint_font_color"
+                            android:ellipsize="end"
+                            android:singleLine="true" />
+                    </LinearLayout>
+
+                    <View
+                        style="@style/horizontal_thin_line"
+                        android:layout_marginTop="@dimen/detail_group_margin"
+                        android:layout_marginBottom="@dimen/detail_group_margin" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:drawableLeft="@drawable/detail_point"
+                            android:drawablePadding="5.0dip"
+                            android:text="@string/detail_house_info_4"
+                            android:textSize="@dimen/detail_text_size"
+                            android:textColor="@color/tint_font_color" />
+
+                        <TextView
+                            android:id="@+id/detail_house_info_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text=""
+                            android:textSize="@dimen/detail_text_size"
+                            android:textColor="@color/tint_font_color"
+                            android:ellipsize="end"
+                            android:singleLine="true" />
+                    </LinearLayout>
+
+                    <View
+                        style="@style/horizontal_thin_line"
+                        android:layout_marginTop="@dimen/detail_group_margin"
+                        android:layout_marginBottom="@dimen/detail_group_margin"  />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:drawableLeft="@drawable/detail_point"
+                            android:drawablePadding="5.0dip"
+                            android:text="@string/detail_house_info_5"
+                            android:textSize="@dimen/detail_text_size"
+                            android:textColor="@color/tint_font_color" />
+
+                        <TextView
+                            android:id="@+id/detail_house_info_5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
@@ -311,12 +374,12 @@
                             android:layout_gravity="center_vertical"
                             android:drawableLeft="@drawable/detail_point"
                             android:drawablePadding="5.0dip"
-                            android:text="@string/detail_matters_attention"
+                            android:text="@string/detail_house_info_6"
                             android:textSize="@dimen/detail_text_size"
                             android:textColor="@color/tint_font_color" />
 
                         <TextView
-                            android:id="@+id/detail_matters_attention"
+                            android:id="@+id/detail_house_info_6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
