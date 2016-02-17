@@ -74,6 +74,13 @@ public class HouseActivity extends BaseActivity {
         TextViewUtil.setText(this, R.id.detail_house_top_title, JSONUtil.getString(oj_data, "xiaoqu_name"));
         TextViewUtil.setText(this, R.id.detail_house_selling_point, JSONUtil.getString(oj_data, "name"));
         TextViewUtil.setText(this, R.id.detail_house_average_price, JSONUtil.getString(oj_data, "unit_price"));
+
+        TextViewUtil.setText(this, R.id.detail_house_info_1, JSONUtil.getString(oj_data, "room") + "室" + JSONUtil.getString(oj_data, "lounge") + "厅" + JSONUtil.getString(oj_data, "toilet") + "卫");
+        TextViewUtil.setText(this, R.id.detail_house_info_2, JSONUtil.getString(oj_data, "floor") + "/" + JSONUtil.getString(oj_data, "total_floor"));
+        TextViewUtil.setText(this, R.id.detail_house_info_3, JSONUtil.getString(oj_data, "address"));
+        TextViewUtil.setText(this, R.id.detail_house_info_4, JSONUtil.getString(oj_data, "acreage") + "平米");
+        TextViewUtil.setText(this, R.id.detail_house_info_5, JSONUtil.getString(oj_data, "build_year"));
+        TextViewUtil.setText(this, R.id.detail_house_info_6, JSONUtil.getString(oj_data, "orientation_name"));
     }
 
     private void initDetailVPager(JSONObject json, String picUrl) {
