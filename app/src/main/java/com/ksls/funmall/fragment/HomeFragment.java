@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 
 import com.ksls.funmall.R;
 import com.ksls.funmall.base.BaseFragment;
+import com.ksls.funmall.util.JSONUtil;
+import com.ksls.funmall.util.TextViewUtil;
 
 
 public class HomeFragment extends BaseFragment {
@@ -25,5 +27,21 @@ public class HomeFragment extends BaseFragment {
         super.onActivityCreated(savedInstanceState);
 
         initHeader();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        setUpViews();
+    }
+
+    private void setUpViews() {
+
+        String username = appManager.getLoginUser().optString("rel_name");
+        String user_tel = appManager.getLoginUser().optString("tel");
+
+        TextViewUtil.setText(getActivity(), R.id.text_agency_homepage_uname, username);
+        TextViewUtil.setText(getActivity(), R.id.text_agency_homepage_tel, user_tel);
     }
 }
