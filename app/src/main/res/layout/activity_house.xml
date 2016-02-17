@@ -265,6 +265,7 @@
                         android:layout_marginBottom="@dimen/detail_group_margin"  />
 
                     <LinearLayout
+                        android:id="@+id/detail_house_info_3_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal" >

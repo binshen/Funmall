@@ -27,6 +27,8 @@ import java.util.List;
 public class HouseActivity extends BaseActivity implements View.OnClickListener {
 
     private Integer house_id;
+    private String xq_name;
+    private double latitude, longitude;
 
     private ViewPager vPager;
     private List<View> viewList;
@@ -62,11 +64,15 @@ public class HouseActivity extends BaseActivity implements View.OnClickListener 
         detail_vpager_counter = (TextView) findViewById(R.id.detail_vpager_counter);
 
         findViewById(R.id.button_house_loan_calculator).setOnClickListener(this);
+        findViewById(R.id.detail_house_info_3_layout).setOnClickListener(this);
     }
 
     private void showData(JSONObject json) {
 
         JSONObject oj_data = JSONUtil.getObject(json, "detail");
+        xq_name = JSONUtil.getString(oj_data, "xiaoqu_name");
+        latitude = JSONUtil.getDouble(oj_data, "latitude");
+        longitude = JSONUtil.getDouble(oj_data, "longitude");
 
         String picUrl = "http://www.funmall.com.cn/uploadfiles/pics/" + JSONUtil.getString(oj_data, "folder") + "/1/";
 
@@ -135,6 +141,12 @@ public class HouseActivity extends BaseActivity implements View.OnClickListener 
             case R.id.button_house_loan_calculator:
                 startActivity(new Intent(this, CalculatorActivity.class));
                 break;
+            case R.id.detail_house_info_3_layout:
+                Intent baiduIntent = new Intent(this, BaiduMapActivity.class);
+                baiduIntent.putExtra("name", xq_name);
+                baiduIntent.putExtra("latitude", latitude);
+                baiduIntent.putExtra("longitude", longitude);
+                startActivity(baiduIntent);
         }
     }
 }

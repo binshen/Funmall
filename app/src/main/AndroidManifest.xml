@@ -3,6 +3,17 @@
     package="com.ksls.funmall" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <!-- <uses-permission android:name="android.permission.READ_CONTACTS" /> -->
+    <!-- <uses-permission android:name="android.permission.WRITE_CONTACTS" /> -->
+
+    <!-- 百度地图 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".base.AppManager"
@@ -24,6 +35,13 @@
         <activity android:name=".HouseAlbumActivity" />
         <activity android:name=".CalculatorActivity" />
         <activity android:name=".CalculatorResultActivity" />
+        <activity android:name=".BaiduMapActivity" />
+
+        <!-- 百度地图 API Key 设定 -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="I7pwyejkHeCIUQEGRRa6Tcib" />
+
     </application>
 
 </manifest>
