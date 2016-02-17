@@ -1,15 +1,27 @@
 package com.ksls.funmall;
 
 import android.app.Activity;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
+import com.androidquery.callback.AjaxStatus;
+import com.ksls.funmall.adapter.ViewPagerAdapter;
+import com.ksls.funmall.base.AqArrayCallback;
+import com.ksls.funmall.base.AqObjectCallback;
 import com.ksls.funmall.base.BaseActivity;
+import com.ksls.funmall.base.Constants;
+import com.ksls.funmall.listener.ViewPagerChangeListener;
+import com.ksls.funmall.util.JSONUtil;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -62,6 +74,14 @@ public class HouseAlbumActivity extends BaseActivity implements RadioGroup.OnChe
                 break;
         }
 
+        aq.request(Constants.API_BASE_URL + "/get_house/" + house_id, JSONObject.class, new AqObjectCallback<JSONObject>(aq) {
+            @Override
+            public void handleCallback(String url, JSONObject json, AjaxStatus status) {
+                showData(json);
+
+                progressDialog.cancel();
+            }
+        });
     }
 
     private void setUpViews() {
@@ -104,6 +124,51 @@ public class HouseAlbumActivity extends BaseActivity implements RadioGroup.OnChe
 
     private void showData(JSONObject json) {
 
+        JSONObject oj_data = JSONUtil.getObject(json, "detail");
+        JSONArray oj_array = JSONUtil.getArray(json, "slide");
 
+        String picUrl = "http://www.funmall.com.cn/uploadfiles/pics/" + JSONUtil.getString(oj_data, "folder") + "/1/";
+
+        viewList.clear();
+        for (int i = 0; i < oj_array.length(); i++) {
+            ImageView pic = new ImageView(this);
+            pic.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            viewList.add(pic);
+            aq.id(pic).image(picUrl + JSONUtil.getString(oj_array, i, "pic_short"));
+        }
+        Drawable drawable = getResources().getDrawable(R.drawable.icon_detail_vpage);
+        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+        header.getTitle().setCompoundDrawables(drawable, null, null, null);
+        header.getTitle().setCompoundDrawablePadding(5);
+
+        final int pager_total = viewList.size();
+        if(pager_total == 0) {
+            header.getTitle().setText("0/0");
+            Toast.makeText(this, "图片不存在", Toast.LENGTH_SHORT).show();
+        } else {
+            header.getTitle().setText("1/" + pager_total);
+        }
+        vPagerAdapter = new ViewPagerAdapter(viewList) {
+            @Override
+            public void setPrimaryItem(ViewGroup container, int position, Object object) {
+                super.setPrimaryItem(container, position, object);
+            }
+            @Override
+            public void destroyItem(View container, int position, Object object) {
+                ((ViewPager) container).removeView((View)object);
+            }
+            @Override
+            public int getItemPosition(Object object) {
+                return POSITION_NONE;
+            }
+        };
+        vPager = (ViewPager) findViewById(R.id.house_album_vpager);
+        vPager.setAdapter(vPagerAdapter);
+        vPager.setOnPageChangeListener(new ViewPagerChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                header.getTitle().setText((position + 1) + "/" + pager_total);
+            }
+        });
     }
 }
