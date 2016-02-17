@@ -40,7 +40,7 @@
         <!-- 百度地图 API Key 设定 -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="I7pwyejkHeCIUQEGRRa6Tcib" />
+            android:value="FtXNAiX9NG5xjY7gFQRpYHVC" />
 
     </application>
 

@@ -91,7 +91,8 @@ public class BaiduMapActivity extends BaseActivity implements OnGetGeoCoderResul
 //						mBaiduMap.hideInfoWindow();
 //					}
 //				});
-//				mBaiduMap.showInfoWindow(mInfoWindow);
+				InfoWindow mInfoWindow = new InfoWindow(location, latitude, 0);
+				mBaiduMap.showInfoWindow(mInfoWindow);
 				return true;
 			}
 		});
