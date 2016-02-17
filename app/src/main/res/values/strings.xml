@@ -26,4 +26,7 @@
     <string name="house_album_tab5">样板房</string>
     <string name="house_album_tab6">活动图</string>
 
+    <string name="detail_house_selling_point">楼盘卖点：</string>
+    <string name="detail_house_calculator">房贷计算器</string>
+
 </resources>

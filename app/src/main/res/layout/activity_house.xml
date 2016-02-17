@@ -89,6 +89,87 @@
 
                 </RelativeLayout>
             </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/detail_layout_padding" >
+
+                <TextView
+                    android:id="@+id/detail_house_top_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    style="@style/detail_title" />
+            </LinearLayout>
+
+            <View style="@style/horizontal_thin_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="8.0dip"
+                android:paddingLeft="@dimen/detail_layout_padding"
+                android:paddingRight="@dimen/detail_layout_padding"
+                android:paddingBottom="8.0dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detail_house_selling_point"
+                    android:textSize="@dimen/detail_text_size"
+                    android:textColor="@color/tint_font_color" />
+
+                <TextView
+                    android:id="@+id/detail_house_selling_point"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="@dimen/detail_text_size"
+                    android:textColor="@color/tint_font_color" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/detail_layout_padding"
+                android:paddingRight="@dimen/detail_layout_padding"
+                android:paddingBottom="@dimen/detail_layout_padding" >
+
+                <TextView
+                    android:id="@+id/detail_house_average_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="@dimen/detail_text_size"
+                    android:textColor="@color/darkred"
+                    android:singleLine="true"
+                    android:ellipsize="end" />
+
+                <TextView
+                    android:id="@+id/button_house_loan_calculator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_alignParentRight="true"
+                    android:drawableLeft="@drawable/house_loan_calculator"
+                    android:drawablePadding="5.0dip"
+                    android:text="@string/detail_house_calculator"
+                    android:textSize="@dimen/detail_text_size"
+                    android:textColor="#ff3ca489" />
+            </RelativeLayout>
+
+            <LinearLayout style="@style/horizontal_thick_line" />
+
+            <!-- 优先获得焦点 -->
+            <View
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:layout_width="0px"
+                android:layout_height="0px" />
         </LinearLayout>
     </ScrollView>
 

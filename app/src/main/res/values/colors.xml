@@ -10,8 +10,10 @@
 
     <color name="grey">#fff4f4f4</color>
     <color name="darkgrey">#ffdcdcdc</color>
+    <color name="darkred">#ffc81e43</color>
 
     <color name="listview_color">#00000000</color>
     <color name="overlay_color">#33000000</color>
 
+    <color name="tint_font_color">#ff999999</color>
 </resources>

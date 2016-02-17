@@ -56,4 +56,29 @@
         <item name="android:background">@drawable/calculator_tab_x</item>
     </style>
 
+    <style name="horizontal_thin_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dip</item>
+        <item name="android:background">@color/grey</item>
+    </style>
+
+    <style name="horizontal_thick_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">6.5dip</item>
+        <item name="android:background">@color/darkgrey</item>
+    </style>
+
+    <style name="home_title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginLeft">15.0dip</item>
+        <item name="android:textSize">@dimen/home_title_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="detail_title" parent="@style/home_title">
+        <item name="android:textSize">@dimen/detail_title_text_size</item>
+    </style>
+
 </resources>
