@@ -43,6 +43,7 @@
                     android:layout_weight="2.5" >
 
                     <ImageView
+                        android:id="@+id/login_user_headpic"
                         android:layout_width="60.0dip"
                         android:layout_height="60.0dip"
                         android:background="@drawable/icon_portrait"

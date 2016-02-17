@@ -40,8 +40,14 @@ public class HomeFragment extends BaseFragment {
 
         String username = appManager.getLoginUser().optString("rel_name");
         String user_tel = appManager.getLoginUser().optString("tel");
+        String user_pic = appManager.getLoginUser().optString("pic");
+
 
         TextViewUtil.setText(getActivity(), R.id.text_agency_homepage_uname, username);
         TextViewUtil.setText(getActivity(), R.id.text_agency_homepage_tel, user_tel);
+
+        if(user_pic != null) {
+            aq.id(R.id.login_user_headpic).image("http://www.funmall.com.cn/" + user_pic);
+        }
     }
 }
