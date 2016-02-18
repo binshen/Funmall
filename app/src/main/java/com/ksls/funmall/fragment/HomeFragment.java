@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentTabHost;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
 
 import com.ksls.funmall.R;
 import com.ksls.funmall.base.BaseFragment;
@@ -15,6 +17,10 @@ import com.ksls.funmall.util.TextViewUtil;
 
 
 public class HomeFragment extends BaseFragment implements View.OnClickListener {
+
+    protected FragmentTabHost tabHost;
+    protected RadioButton btnTab2;
+    protected RadioButton btnTab3;
 
     @Nullable
     @Override
@@ -51,6 +57,13 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         }
 
         getView().findViewById(R.id.button_agency_homepage_logout).setOnClickListener(this);
+        getView().findViewById(R.id.button_icon_homepage_1).setOnClickListener(this);
+        getView().findViewById(R.id.button_icon_homepage_2).setOnClickListener(this);
+        getView().findViewById(R.id.button_icon_homepage_3).setOnClickListener(this);
+
+        tabHost = (FragmentTabHost) getActivity().findViewById(android.R.id.tabhost);
+        btnTab2 = (RadioButton) getActivity().findViewById(R.id.main_tab2);
+        btnTab3 = (RadioButton) getActivity().findViewById(R.id.main_tab3);
     }
 
     @Override
@@ -59,6 +72,16 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             case R.id.button_agency_homepage_logout:
                 getActivity().finish();
                 System.exit(0);
+                break;
+            case R.id.button_icon_homepage_1:
+                break;
+            case R.id.button_icon_homepage_2:
+                tabHost.setCurrentTabByTag("tab2");
+                btnTab2.setChecked(true);
+                break;
+            case R.id.button_icon_homepage_3:
+                tabHost.setCurrentTabByTag("tab3");
+                btnTab3.setChecked(true);
                 break;
         }
     }

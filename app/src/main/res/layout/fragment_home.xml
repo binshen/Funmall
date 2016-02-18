@@ -115,7 +115,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/button_icon_agency_homepage"
+                android:id="@+id/button_icon_homepage_1"
                 android:layout_width="match_parent"
                 android:layout_height="35.0dip"
                 android:background="@color/white"
@@ -125,7 +125,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="我的主页"
+                    android:text="我的名片"
                     android:drawableLeft="@drawable/icon_1"
                     android:drawableRight="@drawable/arrow_right_dark"
                     android:drawablePadding="20.0dip"
@@ -133,7 +133,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/button_icon_agency_checkin"
+                android:id="@+id/button_icon_homepage_2"
                 android:layout_width="match_parent"
                 android:layout_height="35.0dip"
                 android:background="@color/white"
@@ -143,7 +143,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="客户报备"
+                    android:text="我的房源"
                     android:drawableLeft="@drawable/icon_2"
                     android:drawableRight="@drawable/arrow_right_dark"
                     android:drawablePadding="20.0dip"
@@ -151,7 +151,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/button_icon_agency_customer"
+                android:id="@+id/button_icon_homepage_3"
                 android:layout_width="match_parent"
                 android:layout_height="35.0dip"
                 android:background="@color/white"
@@ -161,7 +161,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="客户管理"
+                    android:text="我的客户"
                     android:drawableLeft="@drawable/icon_4"
                     android:drawableRight="@drawable/arrow_right_dark"
                     android:drawablePadding="20.0dip"
@@ -169,7 +169,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/button_icon_agency_favorite"
+                android:id="@+id/button_icon_homepage_4"
                 android:layout_width="match_parent"
                 android:layout_height="35.0dip"
                 android:background="@color/white"
@@ -187,7 +187,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/button_icon_agency_company"
+                android:id="@+id/button_icon_homepage_5"
                 android:layout_width="match_parent"
                 android:layout_height="35.0dip"
                 android:background="@color/white"
@@ -205,7 +205,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/button_icon_agency_message"
+                android:id="@+id/button_icon_homepage_6"
                 android:layout_width="match_parent"
                 android:layout_height="35.0dip"
                 android:background="@color/white"
@@ -223,7 +223,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/button_icon_agency_setting"
+                android:id="@+id/button_icon_homepage_7"
                 android:layout_width="match_parent"
                 android:layout_height="35.0dip"
                 android:background="@color/white"
