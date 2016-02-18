@@ -1,6 +1,7 @@
 package com.ksls.funmall.fragment;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
 
+import com.ksls.funmall.HouseActivity;
+import com.ksls.funmall.PortraitActivity;
 import com.ksls.funmall.R;
 import com.ksls.funmall.base.BaseFragment;
 import com.ksls.funmall.util.JSONUtil;
@@ -74,6 +77,10 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 System.exit(0);
                 break;
             case R.id.button_icon_homepage_1:
+                Intent intent = new Intent();
+                intent.putExtra("broker_id", 2);
+                intent.setClass(getActivity(), PortraitActivity.class);
+                getActivity().startActivity(intent);
                 break;
             case R.id.button_icon_homepage_2:
                 tabHost.setCurrentTabByTag("tab2");
