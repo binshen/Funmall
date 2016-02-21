@@ -8,6 +8,8 @@ import android.view.View;
 import com.ksls.funmall.R;
 import com.ksls.funmall.view.Header;
 
+import cn.jpush.android.api.JPushInterface;
+
 public class BaseFragment extends Fragment {
 
     protected AppQuery aq;
@@ -50,5 +52,17 @@ public class BaseFragment extends Fragment {
 
     protected void setupRightHeaderCallback() {
 
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        JPushInterface.onPause(getActivity().getApplicationContext());
+    }
+
+    @Override
+    public  void onResume() {
+        super.onResume();
+        JPushInterface.onResume(getActivity().getApplicationContext());
     }
 }

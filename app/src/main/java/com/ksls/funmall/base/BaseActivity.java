@@ -10,6 +10,8 @@ import android.view.Window;
 import com.ksls.funmall.R;
 import com.ksls.funmall.view.Header;
 
+import cn.jpush.android.api.JPushInterface;
+
 public class BaseActivity extends Activity {
 
 	protected AppQuery aq;
@@ -64,5 +66,13 @@ public class BaseActivity extends Activity {
 
 		aq.clear();
 		progressDialog.dismiss();
+
+		JPushInterface.onPause(getApplicationContext());
+	}
+
+	@Override
+	protected  void onResume() {
+		super.onResume();
+		JPushInterface.onResume(getApplicationContext());
 	}
 }
