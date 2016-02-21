@@ -11,6 +11,19 @@
         fm:left_background="@drawable/header_return"
         fm:right_background="@drawable/header_detail_config" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60dp">
 
+        <ImageView
+            android:id="@+id/login_user_barcode"
+            android:layout_width="200.0dip"
+            android:layout_height="200.0dip"
+            android:background="@drawable/icon_portrait"
+            android:scaleType="fitXY"
+            android:contentDescription="@string/desc" />
+    </LinearLayout>
 
 </LinearLayout>
