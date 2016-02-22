@@ -42,8 +42,21 @@ public class ClientAdapter extends AppBaseAdapter {
         aq.id(convertView.findViewById(R.id.client_head_pic)).image(data.optString("headimgurl"), true, true, 0, R.drawable.header_logo);
         TextViewUtil.setText(convertView, R.id.client_nickname, data.optString("nickname"));
         TextViewUtil.setText(convertView, R.id.client_sex, data.optString("sex").equals("1") ? "男" : "女");
-        TextViewUtil.setText(convertView, R.id.client_realname, data.optString("realname"));
-        TextViewUtil.setText(convertView, R.id.client_user_tel, data.optString("user_tel"));
+
+        String username = data.optString("realname");
+        if(username != null && !("").equals(username) && !("null").equals(username)) {
+            TextViewUtil.setText(convertView, R.id.client_realname, "姓名：" + username);
+        } else {
+            TextViewUtil.setText(convertView, R.id.client_realname, "姓名：暂无");
+        }
+
+        String user_tel = data.optString("user_tel");
+        if(user_tel != null && !("").equals(user_tel) && !("null").equals(user_tel)) {
+            TextViewUtil.setText(convertView, R.id.client_user_tel, "电话：" + user_tel);
+        } else {
+            TextViewUtil.setText(convertView, R.id.client_user_tel, "电话：暂无");
+        }
+
         return convertView;
     }
 }
