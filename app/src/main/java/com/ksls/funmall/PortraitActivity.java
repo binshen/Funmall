@@ -19,6 +19,6 @@ public class PortraitActivity extends BaseActivity {
     private void setUpViews() {
 
         String ticket = appManager.getLoginUser().optString("ticket");
-        aq.id(R.id.login_user_barcode).image("https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=" + ticket);
+        aq.id(R.id.login_user_barcode).image("https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=" + ticket, true, true, 0, R.drawable.icon_portrait);
     }
 }

@@ -21,7 +21,6 @@
             android:id="@+id/login_user_barcode"
             android:layout_width="200.0dip"
             android:layout_height="200.0dip"
-            android:background="@drawable/icon_portrait"
             android:scaleType="fitXY"
             android:contentDescription="@string/desc" />
     </LinearLayout>

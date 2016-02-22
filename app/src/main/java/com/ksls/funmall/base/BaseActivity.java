@@ -67,12 +67,12 @@ public class BaseActivity extends Activity {
 		aq.clear();
 		progressDialog.dismiss();
 
-		JPushInterface.onPause(getApplicationContext());
+//		JPushInterface.onPause(getApplicationContext());
 	}
 
-	@Override
-	protected  void onResume() {
-		super.onResume();
-		JPushInterface.onResume(getApplicationContext());
-	}
+//	@Override
+//	protected  void onResume() {
+//		super.onResume();
+//		JPushInterface.onResume(getApplicationContext());
+//	}
 }

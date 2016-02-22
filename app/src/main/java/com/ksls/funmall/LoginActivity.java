@@ -17,6 +17,8 @@ import com.ksls.funmall.base.AqObjectCallback;
 import com.ksls.funmall.base.BaseActivity;
 import com.ksls.funmall.base.Constants;
 
+import cn.jpush.android.api.JPushInterface;
+
 public class LoginActivity extends BaseActivity implements OnClickListener {
 
 	private EditText mUsernameEditText;
@@ -48,6 +50,8 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		mUsernameEditText = (EditText) findViewById(R.id.login_edtId);
 		mPasswordEditText = (EditText) findViewById(R.id.login_edtPwd);
 		findViewById(R.id.login_btnLogin).setOnClickListener(this);
+
+		JPushInterface.init(getApplicationContext());
 	}
 
 	private void processLogin() {
@@ -69,5 +73,17 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 				}
 			}
 		});
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		JPushInterface.onPause(getApplicationContext());
+	}
+
+	@Override
+	protected  void onResume() {
+		super.onResume();
+		JPushInterface.onResume(getApplicationContext());
 	}
 }

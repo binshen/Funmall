@@ -53,15 +53,15 @@ public class BaseFragmentActivity extends FragmentActivity {
 
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        JPushInterface.onPause(getApplicationContext());
-    }
-
-    @Override
-    public  void onResume() {
-        super.onResume();
-        JPushInterface.onResume(getApplicationContext());
-    }
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//        JPushInterface.onPause(getApplicationContext());
+//    }
+//
+//    @Override
+//    public  void onResume() {
+//        super.onResume();
+//        JPushInterface.onResume(getApplicationContext());
+//    }
 }
