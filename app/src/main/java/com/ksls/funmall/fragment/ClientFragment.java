@@ -57,6 +57,7 @@ public class ClientFragment extends BaseFragment implements PullToRefreshView.On
 
     private void setUpViews() {
 
+        progressDialog.show();
         Integer user_id = appManager.getLoginUser().optInt("id");
         client_list = new ArrayList<JSONObject>();
         aq.request(Constants.API_BASE_URL + "/list_client/" + user_id, JSONArray.class, new AqArrayCallback<JSONArray>(aq) {
@@ -84,5 +85,11 @@ public class ClientFragment extends BaseFragment implements PullToRefreshView.On
             mClientAdapter = new ClientAdapter(aq, client_list);
             mClientList.setAdapter(mClientAdapter);
         }
+    }
+
+    @Override
+    protected void setupLeftHeaderCallback() {
+
+        setUpViews();
     }
 }

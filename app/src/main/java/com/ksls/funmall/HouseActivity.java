@@ -71,6 +71,8 @@ public class HouseActivity extends BaseActivity implements View.OnClickListener 
 
         JSONObject oj_data = JSONUtil.getObject(json, "detail");
         xq_name = JSONUtil.getString(oj_data, "xiaoqu_name");
+        header.getTitle().setText(xq_name);
+
         latitude = JSONUtil.getDouble(oj_data, "latitude");
         longitude = JSONUtil.getDouble(oj_data, "longitude");
 

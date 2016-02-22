@@ -56,6 +56,7 @@ public class HouseFragment extends BaseFragment implements PullToRefreshView.OnF
 
     private void setUpViews() {
 
+        progressDialog.show();
         Integer user_id = appManager.getLoginUser().optInt("id");
         house_list = new ArrayList<JSONObject>();
         aq.request(Constants.API_BASE_URL + "/list_house/" + user_id, JSONArray.class, new AqArrayCallback<JSONArray>(aq) {
@@ -83,5 +84,11 @@ public class HouseFragment extends BaseFragment implements PullToRefreshView.OnF
             mHouseAdapter = new HouseAdapter(aq, house_list);
             mHouseList.setAdapter(mHouseAdapter);
         }
+    }
+
+    @Override
+    protected void setupLeftHeaderCallback() {
+
+        setUpViews();
     }
 }

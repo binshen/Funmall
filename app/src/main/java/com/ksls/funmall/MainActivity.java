@@ -7,21 +7,29 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.ksls.funmall.base.BaseFragmentActivity;
 import com.ksls.funmall.fragment.ClientFragment;
 import com.ksls.funmall.fragment.HomeFragment;
 import com.ksls.funmall.fragment.HouseFragment;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends BaseFragmentActivity implements RadioGroup.OnCheckedChangeListener {
 
     private FragmentTabHost tabHost;
+
+    private boolean isExit = false;
+    private Timer timer = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        timer = new Timer();
         setUpViews();
     }
 
@@ -82,5 +90,30 @@ public class MainActivity extends BaseFragmentActivity implements RadioGroup.OnC
 
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.main_tab_group);
         radioGroup.setOnCheckedChangeListener(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(tabHost.getCurrentTab() == 0) {
+            if (isExit) {
+                finish();
+                android.os.Process.killProcess(android.os.Process.myPid());
+                //System.exit(0);
+            } else {
+                isExit = true;
+                Toast.makeText(MainActivity.this, "再按一次退出", Toast.LENGTH_SHORT).show();
+                TimerTask timeTask = new TimerTask() {
+                    @Override
+                    public void run() {
+                        isExit = false;
+                    }
+                };
+                timer.schedule(timeTask, 2000);
+            }
+        } else {
+            tabHost.setCurrentTabByTag("tab1");
+            RadioButton button = (RadioButton) findViewById(R.id.main_tab1);
+            button.setChecked(true);
+        }
     }
 }

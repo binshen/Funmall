@@ -92,4 +92,10 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 break;
         }
     }
+
+    @Override
+    protected void setupLeftHeaderCallback() {
+
+        setUpViews();
+    }
 }
