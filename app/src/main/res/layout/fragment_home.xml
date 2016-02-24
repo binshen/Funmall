@@ -125,7 +125,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="我的名片"
+                    android:text="@string/main_tab1_home_1"
                     android:drawableLeft="@drawable/icon_1"
                     android:drawableRight="@drawable/arrow_right_dark"
                     android:drawablePadding="20.0dip"
@@ -143,7 +143,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="我的房源"
+                    android:text="@string/main_tab1_home_2"
                     android:drawableLeft="@drawable/icon_2"
                     android:drawableRight="@drawable/arrow_right_dark"
                     android:drawablePadding="20.0dip"
@@ -161,7 +161,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="我的客户"
+                    android:text="@string/main_tab1_home_3"
                     android:drawableLeft="@drawable/icon_4"
                     android:drawableRight="@drawable/arrow_right_dark"
                     android:drawablePadding="20.0dip"
@@ -179,7 +179,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="收藏楼盘"
+                    android:text="@string/main_tab1_home_4"
                     android:drawableLeft="@drawable/icon_3"
                     android:drawableRight="@drawable/arrow_right_dark"
                     android:drawablePadding="20.0dip"
@@ -197,7 +197,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="所属公司"
+                    android:text="@string/main_tab1_home_5"
                     android:drawableLeft="@drawable/icon_5"
                     android:drawableRight="@drawable/arrow_right_dark"
                     android:drawablePadding="20.0dip"
@@ -215,7 +215,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="我的消息"
+                    android:text="@string/main_tab1_home_6"
                     android:drawableLeft="@drawable/icon_7"
                     android:drawableRight="@drawable/arrow_right_dark"
                     android:drawablePadding="20.0dip"
@@ -233,7 +233,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="设置"
+                    android:text="@string/main_tab1_home_7"
                     android:drawableLeft="@drawable/icon_9"
                     android:drawableRight="@drawable/arrow_right_dark"
                     android:drawablePadding="20.0dip"
