@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
 
+import com.ksls.funmall.AttendanceActivity;
 import com.ksls.funmall.HouseActivity;
 import com.ksls.funmall.PortraitActivity;
 import com.ksls.funmall.R;
@@ -24,6 +25,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     protected FragmentTabHost tabHost;
     protected RadioButton btnTab2;
     protected RadioButton btnTab3;
+
+    private int broker_id;
 
     @Nullable
     @Override
@@ -50,7 +53,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         String username = appManager.getLoginUser().optString("rel_name");
         String user_tel = appManager.getLoginUser().optString("tel");
         String user_pic = appManager.getLoginUser().optString("pic");
-
+        broker_id = appManager.getLoginUser().optInt("id");
 
         TextViewUtil.setText(getActivity(), R.id.text_agency_homepage_uname, username);
         TextViewUtil.setText(getActivity(), R.id.text_agency_homepage_tel, user_tel);
@@ -63,6 +66,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         getView().findViewById(R.id.button_icon_homepage_1).setOnClickListener(this);
         getView().findViewById(R.id.button_icon_homepage_2).setOnClickListener(this);
         getView().findViewById(R.id.button_icon_homepage_3).setOnClickListener(this);
+        getView().findViewById(R.id.button_icon_homepage_4).setOnClickListener(this);
 
         tabHost = (FragmentTabHost) getActivity().findViewById(android.R.id.tabhost);
         btnTab2 = (RadioButton) getActivity().findViewById(R.id.main_tab2);
@@ -71,14 +75,15 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        Intent intent;
         switch (v.getId()) {
             case R.id.button_agency_homepage_logout:
                 getActivity().finish();
                 System.exit(0);
                 break;
             case R.id.button_icon_homepage_1:
-                Intent intent = new Intent();
-                intent.putExtra("broker_id", 2);
+                intent = new Intent();
+                intent.putExtra("broker_id", broker_id);
                 intent.setClass(getActivity(), PortraitActivity.class);
                 getActivity().startActivity(intent);
                 break;
@@ -89,6 +94,12 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             case R.id.button_icon_homepage_3:
                 tabHost.setCurrentTabByTag("tab3");
                 btnTab3.setChecked(true);
+                break;
+            case R.id.button_icon_homepage_4:
+                intent = new Intent();
+                intent.putExtra("broker_id", broker_id);
+                intent.setClass(getActivity(), AttendanceActivity.class);
+                getActivity().startActivity(intent);
                 break;
         }
     }
